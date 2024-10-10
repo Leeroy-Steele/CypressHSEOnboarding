@@ -6,6 +6,10 @@ let addEmployee1 = ()=>{}
 let addEmployee2 = ()=>{}
 let addEmployee3 = ()=>{}
 let addEmployee4 = ()=>{}
+let addEmployee5 = ()=>{}
+let addEmployee6 = ()=>{}
+let addEmployee7 = ()=>{}
+let addEmployee8 = ()=>{}
 if(Cypress.env('NUMBER_OF_EMPLOYEES')>0){
   addEmployee1=()=>{
     // Select New User
@@ -93,10 +97,98 @@ if(Cypress.env('NUMBER_OF_EMPLOYEES')>3){
     cy.get('.clearfix.ng-binding > .button').should('exist').click()
   }
 }
+if(Cypress.env('NUMBER_OF_EMPLOYEES')>4){
+  addEmployee1=()=>{
+    // Select New User
+    cy.get('.report > div.ng-scope > .ng-scope > h2.clearfix > .button').should('exist').click()
+    cy.wait(LongWait)
+    // Add login name
+    cy.get(':nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(2) > [placeholder="Login Name"][type="text"]').type(Cypress.env('Employee5_EMAIL'))
+    cy.wait(shortWait)
+    // Add display name
+    cy.get(':nth-child(1) > .textbox').type(Cypress.env('Employee5_NAME'))
+    cy.wait(shortWait)
+    // Add Email
+    cy.get(':nth-child(2) > .input_content > .clearfix > :nth-child(1) > .ng-pristine').type(Cypress.env('Employee5_EMAIL'))
+    cy.wait(shortWait)
+    // Save user
+    cy.get('.pull-right > .button').should('exist').click()
+    cy.wait(shortWait)
+    // Go Back
+    cy.get('.clearfix.ng-binding > .button').should('exist').click()
+  }
+}
+if(Cypress.env('NUMBER_OF_EMPLOYEES')>5){
+  addEmployee2=()=>{
+    // Select New User
+    cy.get('.report > div.ng-scope > .ng-scope > h2.clearfix > .button').should('exist').click()
+    cy.wait(LongWait)
+        // Add login name
+        cy.get(':nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(2) > [placeholder="Login Name"][type="text"]').type(Cypress.env('Employee6_EMAIL'))
+        cy.wait(shortWait)
+    // Add display name
+    cy.get(':nth-child(1) > .textbox').type(Cypress.env('Employee6_NAME'))
+    cy.wait(shortWait)
 
-describe('create new company', () => {
+    // Add Email
+    cy.get(':nth-child(2) > .input_content > .clearfix > :nth-child(1) > .ng-pristine').type(Cypress.env('Employee6_EMAIL'))
+    cy.wait(shortWait)
+    // Save user
+    cy.get('.pull-right > .button').should('exist').click()
+    cy.wait(shortWait)
+    // Go Back
+    cy.get('.clearfix.ng-binding > .button').should('exist').click()
+  }
+}
+if(Cypress.env('NUMBER_OF_EMPLOYEES')>6){
+  addEmployee3 = ()=>{
+    // Select New User
+    cy.get('.report > div.ng-scope > .ng-scope > h2.clearfix > .button').should('exist').click()
+    cy.wait(LongWait)
+        // Add login name
+        cy.get(':nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(2) > [placeholder="Login Name"][type="text"]').type(Cypress.env('Employee7_EMAIL'))
+        cy.wait(shortWait)
+    // Add display name
+    cy.get(':nth-child(1) > .textbox').type(Cypress.env('Employee7_NAME'))
+    cy.wait(shortWait)
 
-  it('create new company in HSE', () => {
+    // Add Email
+    cy.get(':nth-child(2) > .input_content > .clearfix > :nth-child(1) > .ng-pristine').type(Cypress.env('Employee7_EMAIL'))
+    cy.wait(shortWait)
+    // Save user
+    cy.get('.pull-right > .button').should('exist').click()
+    cy.wait(shortWait)
+    // Go Back
+    cy.get('.clearfix.ng-binding > .button').should('exist').click()
+  }
+}
+if(Cypress.env('NUMBER_OF_EMPLOYEES')>7){
+  addEmployee3 = ()=>{
+    // Select New User
+    cy.get('.report > div.ng-scope > .ng-scope > h2.clearfix > .button').should('exist').click()
+    cy.wait(LongWait)
+        // Add login name
+        cy.get(':nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(2) > [placeholder="Login Name"][type="text"]').type(Cypress.env('Employee8_EMAIL'))
+        cy.wait(shortWait)
+    // Add display name
+    cy.get(':nth-child(1) > .textbox').type(Cypress.env('Employee8_NAME'))
+    cy.wait(shortWait)
+
+    // Add Email
+    cy.get(':nth-child(2) > .input_content > .clearfix > :nth-child(1) > .ng-pristine').type(Cypress.env('Employee8_EMAIL'))
+    cy.wait(shortWait)
+    // Save user
+    cy.get('.pull-right > .button').should('exist').click()
+    cy.wait(shortWait)
+    // Go Back
+    cy.get('.clearfix.ng-binding > .button').should('exist').click()
+  }
+}
+
+
+describe('Create new HSE company, induction process, users etc', () => {
+
+  it('Create new company in HSE Connect', () => {
     // Login to HSE Preview
     cy.visit(Cypress.env('HSE_PREVIEW_URL'))
 
@@ -280,10 +372,13 @@ describe('create new company', () => {
       addEmployee2()
       addEmployee3()
       addEmployee4()
-
+      addEmployee5()
+      addEmployee6()
+      addEmployee7()
+      addEmployee8()
   })
 
-  it('create contacts in Lancom Button', () => {
+  it('Create contacts in Lancom Button', () => {
 
     // Do with webhook to Power Automate. Flow is here -> `https://make.powerautomate.com/environments/2e21e621-fcf3-eae1-a4d1-9e02b3152fc8/flows/96d7de0a-c2fb-4a1b-940e-e541d79058b4/runs/08584732557519775569424720085CU26`
 

@@ -32,33 +32,57 @@ module.exports = defineConfig({
       MAIN_CONTACT_PASSWORD:"Pw1231231!",
 
       // number of employees:
-      NUMBER_OF_EMPLOYEES:4,
+      NUMBER_OF_EMPLOYEES:8,
 
       // is MTA?
       IS_MTA:false,
 
       //  Employee 1:
       Employee1_NAME:"employee 1",
-      Employee1_EMAIL:"employee1111@email.com",
+      Employee1_EMAIL:"employee-1@email.com",
       Employee1_DEPARTMENT:"office",
       Employee1_IS_MANAGER:true,
 
       //  Employee 2:
       Employee2_NAME:"employee 2",
-      Employee2_EMAIL:"employee2222@email.com",
+      Employee2_EMAIL:"employee-2@email.com",
       Employee2_DEPARTMENT:"office",
       Employee2_IS_MANAGER:true,
 
       //  Employee 3:
       Employee3_NAME:"employee 3",
-      Employee3_EMAIL:"employee3333@email.com",
+      Employee3_EMAIL:"employee-3@email.com",
       Employee3_DEPARTMENT:"workshop",
       Employee3_IS_MANAGER:true,
 
       //  Employee 4:
       Employee4_NAME:"employee 4",
-      Employee4_EMAIL:"employee4444@email.com",
+      Employee4_EMAIL:"employee-4@email.com",
       Employee4_DEPARTMENT:"workshop",
-      Employee4_IS_MANAGER:false,
+      Employee4_IS_MANAGER:true,
+
+      //  Employee 5:
+      Employee5_NAME:"employee 5",
+      Employee5_EMAIL:"employee-5@email.com",
+      Employee5_DEPARTMENT:"office",
+      Employee5_IS_MANAGER:false,
+
+      //  Employee 6:
+      Employee6_NAME:"employee 6",
+      Employee6_EMAIL:"employee-6@email.com",
+      Employee6_DEPARTMENT:"office",
+      Employee6_IS_MANAGER:false,
+
+      //  Employee 7:
+      Employee7_NAME:"employee 7",
+      Employee7_EMAIL:"employee-7@email.com",
+      Employee7_DEPARTMENT:"workshop",
+      Employee7_IS_MANAGER:false,
+
+      //  Employee 8:
+      Employee8_NAME:"employee 8",
+      Employee8_EMAIL:"employee-8@email.com",
+      Employee8_DEPARTMENT:"workshop",
+      Employee8_IS_MANAGER:false,
   },
 });
