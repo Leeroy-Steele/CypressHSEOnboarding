@@ -31,11 +31,11 @@ module.exports = defineConfig({
       MAIN_CONTACT_USERNAME:"CFC Admin",
       MAIN_CONTACT_PASSWORD:"Pw1231231!",
 
-      // number of employees:
-      NUMBER_OF_EMPLOYEES:8,
-
       // is MTA?
       IS_MTA:false,
+      
+      // Number of employees: (Don't count the main contact who will be created from the details above)
+      NUMBER_OF_EMPLOYEES:8,
 
       //  Employee 1:
       Employee1_NAME:"employee 1",
