@@ -1,0 +1,7 @@
+Make into smaller tests (Better logging)
+
+Make departments
+Make Settings > Site
+
+Better way to populate cypress.config?
+
