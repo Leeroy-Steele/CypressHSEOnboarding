@@ -1,3 +1,5 @@
+
+
 let shortWait = 1000
 let LongWait = 3000
 let extralongWait = 4000
@@ -427,16 +429,18 @@ describe('Create new HSE company, induction process, users etc', () => {
   }
 )
 
-  it.only('mock test for front end', () => {
-    // Login to HSE Preview
-    cy.visit(Cypress.env('HSE_PREVIEW_URL'))
+  // it.only('mock test for front end', () => {
+  //   cy.task('log', 'Cypress test started log message 123')
 
-    // Login as super user
-    cy.get('#login_name').type(Cypress.env('HSE_SUPER_USER_LOGIN_NAME'))
-    cy.get('#password').type(Cypress.env('HSE_SUPER_USER_PW'))
-    cy.get('.ng-scope.ng-dirty > .button').click()
+  //   // Login to HSE Preview
+  //   cy.visit(Cypress.env('HSE_PREVIEW_URL'))
 
-  })
+  //   // Login as super user
+  //   cy.get('#login_name').type(Cypress.env('HSE_SUPER_USER_LOGIN_NAME'))
+  //   cy.get('#password').type(Cypress.env('HSE_SUPER_USER_PW'))
+  //   cy.get('.ng-scope.ng-dirty > .button').click()
+
+  // })
 
 
 })

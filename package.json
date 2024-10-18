@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "HSEOnBoard": "cypress run --browser chrome --headless --spec 'cypress/e2e/hseOnboarding.cy.js'",
+    "HSEOnBoard": "cypress run --browser chrome --headed --no-exit --spec 'cypress/e2e/hseOnboarding.cy.js'",
     "start": "node server.js"
   },
   "author": "",

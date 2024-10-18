@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form with Dynamic Employees</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Create and Download a File</h1>
+    <form class="w-full max-w-lg mx-auto p-4" method="POST">
+        <!-- Company Info -->
+        <div class="mb-4">
+            <label for="companyName" class="block text-sm font-medium text-gray-700">Company Name:</label>
+            <input type="text" id="companyName" name="companyName" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+        </div>
+        <div class="mb-4">
+            <label for="companyAddress" class="block text-sm font-medium text-gray-700">Company Address:</label>
+            <input type="text" id="companyAddress" name="companyAddress" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+        </div>
+
+        <!-- Main Contact Info -->
+        <div class="mb-4">
+            <label for="mainContactFirstName" class="block text-sm font-medium text-gray-700">Main Contact First Name:</label>
+            <input type="text" id="mainContactFirstName" name="mainContactFirstName"
+                class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+        </div>
+        <div class="mb-4">
+            <label for="mainContactLastName" class="block text-sm font-medium text-gray-700">Main Contact Last Name:</label>
+            <input type="text" id="mainContactLastName" name="mainContactLastName"
+                class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+        </div>
+        <div class="mb-4">
+            <label for="mainContactEmail" class="block text-sm font-medium text-gray-700">Main Contact Email:</label>
+            <input type="email" id="mainContactEmail" name="mainContactEmail"
+                class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+        </div>
+        <div class="mb-4">
+            <label for="mainContactPhoneNumber" class="block text-sm font-medium text-gray-700">Phone Number:</label>
+            <input type="text" id="mainContactPhoneNumber" name="mainContactPhoneNumber"
+                class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+        </div>
+        <div class="mb-4">
+            <label for="mainContactMobileNumber" class="block text-sm font-medium text-gray-700">Mobile Number:</label>
+            <input type="text" id="mainContactMobileNumber" name="mainContactMobileNumber"
+                class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+        </div>
+        <div class="mb-4">
+            <label for="mainContactUsername" class="block text-sm font-medium text-gray-700">Username:</label>
+            <input type="text" id="mainContactUsername" name="mainContactUsername"
+                class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+        </div>
+        <div class="mb-4">
+            <label for="mainContactPassword" class="block text-sm font-medium text-gray-700">Password:</label>
+            <input type="password" id="mainContactPassword" name="mainContactPassword"
+                class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+        </div>
+
+                <!-- Company Details -->
+                <div class="mb-4">
+                    <label for="isMTA" class="block text-sm font-medium text-gray-700">Is MTA:</label>
+                    <input type="checkbox" id="isMTA" name="isMTA" class="mt-1 p-2 border border-gray-300 rounded-md">
+                </div>
+
+
+        <!-- Number of Employees -->
+        <div class="mb-4">
+            <label for="numberOfEmployees" class="block text-sm font-medium text-gray-700">Number of Employees:</label>
+            <input type="number" id="numberOfEmployees" name="numberOfEmployees" min="1" value="1" max="9" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+        </div>
+
+        <!-- Employee Fields -->
+        <div id="employees-container"></div>
+
+        <!-- Submit -->
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Generate Config</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const employeesContainer = document.getElementById('employees-container');
+            const numberOfEmployeesInput = document.getElementById('numberOfEmployees');
+
+            function updateEmployeeFields() {
+                // Clear existing employee fields
+                employeesContainer.innerHTML = '';
+                
+                const numberOfEmployees = parseInt(numberOfEmployeesInput.value);
+                for (let i = 1; i <= numberOfEmployees; i++) {
+                    const employeeDiv = document.createElement('div');
+                    employeeDiv.classList.add('mb-4');
+                    employeeDiv.innerHTML = `
+                        <div class="mb-4">
+                            <label for="employee${i}Name" class="block text-sm font-medium text-gray-700">Employee ${i} Name:</label>
+                            <input type="text" id="employee${i}Name" name="employee${i}Name" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="employee${i}Email" class="block text-sm font-medium text-gray-700">Employee ${i} Email:</label>
+                            <input type="email" id="employee${i}Email" name="employee${i}Email" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="employee${i}Department" class="block text-sm font-medium text-gray-700">Employee ${i} Department:</label>
+                            <input type="text" id="employee${i}Department" name="employee${i}Department" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="employee${i}IsManager" class="block text-sm font-medium text-gray-700">Employee ${i} Is Manager:</label>
+                            <input type="checkbox" id="employee${i}IsManager" name="employee${i}IsManager">
+                        </div>
+                    `;
+                    employeesContainer.appendChild(employeeDiv);
+                }
+            }
+
+            // Initialize employee fields based on the initial number
+            updateEmployeeFields();
+
+            // Update employee fields when the number of employees changes
+            numberOfEmployeesInput.addEventListener('input', updateEmployeeFields);
+        });
+
+        document.querySelector("form").addEventListener("submit", (e) => {
+            e.preventDefault(); // Prevent the browser's default download behavior
+            const myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            // Collect form data here
+            const formData = new FormData(e.target);
+
+            // Send form data to the server
+            fetch("http://localhost:3000/download", {
+                method: "POST",
+                headers: myHeaders,
+                body: JSON.stringify({
+                    "companyName": e.target.companyName.value,
+                    "companyAddress": e.target.companyAddress.value,
+                    "mainContactFirstName": e.target.mainContactFirstName.value,
+                    "mainContactLastName": e.target.mainContactLastName.value,
+                    "mainContactEmail": e.target.mainContactEmail.value,
+                    "mainContactPhoneNumber": e.target.mainContactPhoneNumber.value,
+                    "mainContactMobileNumber": e.target.mainContactMobileNumber.value,
+                    "mainContactUsername": e.target.mainContactUsername.value,
+                    "mainContactPassword": e.target.mainContactPassword.value,
+                    "isMTA": e.target.isMTA.checked,
+                    "numberOfEmployees": e.target.numberOfEmployees.value,
+
+                    "employee1Name": e.target.numberOfEmployees.value > 0 ?  e.target.employee1Name.value : null,
+                    "employee1Email": e.target.numberOfEmployees.value > 0 ?  e.target.employee1Email.value : null,
+                    "employee1Department": e.target.numberOfEmployees.value > 0 ?  e.target.employee1Department.value : null,
+                    "employee1IsManager": e.target.numberOfEmployees.value > 0 ?  e.target.employee1IsManager.checked : null,
+
+                    "employee2Name": e.target.numberOfEmployees.value > 1 ?  e.target.employee2Name.value : null,
+                    "employee2Email": e.target.numberOfEmployees.value > 1 ?  e.target.employee2Email.value : null,
+                    "employee2Department": e.target.numberOfEmployees.value > 1 ?  e.target.employee2Department.value : null,
+                    "employee2IsManager": e.target.numberOfEmployees.value > 1 ?  e.target.employee2IsManager.checked : null,
+
+                    "employee3Name": e.target.numberOfEmployees.value > 2 ? e.target.employee3Name.value : null,
+                    "employee3Email": e.target.numberOfEmployees.value > 2 ? e.target.employee3Email.value : null,
+                    "employee3Department": e.target.numberOfEmployees.value > 2 ? e.target.employee3Department.value : null,
+                    "employee3IsManager": e.target.numberOfEmployees.value > 2 ? e.target.employee3IsManager.checked : null,
+
+                    "employee4Name": e.target.numberOfEmployees.value > 3 ?  e.target.employee4Name.value : null,
+                    "employee4Email": e.target.numberOfEmployees.value > 3 ?  e.target.employee4Email.value : null,
+                    "employee4Department": e.target.numberOfEmployees.value > 3 ?  e.target.employee4Department.value : null,
+                    "employee4IsManager": e.target.numberOfEmployees.value > 3 ?  e.target.employee4IsManager.checked : null,
+
+                    "employee5Name": e.target.numberOfEmployees.value > 4 ?  e.target.employee5Name.value : null,
+                    "employee5Email": e.target.numberOfEmployees.value > 4 ?  e.target.employee5Email.value : null,
+                    "employee5Department": e.target.numberOfEmployees.value > 4 ?  e.target.employee5Department.value : null,
+                    "employee5IsManager": e.target.numberOfEmployees.value > 4 ?  e.target.employee5IsManager.checked : null,
+
+                    "employee6Name": e.target.numberOfEmployees.value > 5 ? e.target.employee6Name.value : null,
+                    "employee6Email": e.target.numberOfEmployees.value > 5 ? e.target.employee6Email.value : null,
+                    "employee6Department": e.target.numberOfEmployees.value > 5 ? e.target.employee6Department.value : null,
+                    "employee6IsManager": e.target.numberOfEmployees.value > 5 ? e.target.employee6IsManager.checked : null,
+
+                    "employee7Name": e.target.numberOfEmployees.value > 6 ?  e.target.employee7Name.value : null,
+                    "employee7Email": e.target.numberOfEmployees.value > 6 ?  e.target.employee7Email.value : null,
+                    "employee7Department": e.target.numberOfEmployees.value > 6 ?  e.target.employee7Department.value : null,
+                    "employee7IsManager": e.target.numberOfEmployees.value > 6 ?  e.target.employee7IsManager.checked : null,
+
+                    "employee8Name": e.target.numberOfEmployees.value > 7 ?  e.target.employee8Name.value : null,
+                    "employee8Email": e.target.numberOfEmployees.value > 7 ?  e.target.employee8Email.value : null,
+                    "employee8Department": e.target.numberOfEmployees.value > 7 ?  e.target.employee8Department.value : null,
+                    "employee8IsManager": e.target.numberOfEmployees.value > 7 ?  e.target.employee8IsManager.checked : null,
+
+                    "employee9Name": e.target.numberOfEmployees.value > 8 ? e.target.employee9Name.value : null,
+                    "employee9Email": e.target.numberOfEmployees.value > 8 ? e.target.employee9Email.value : null,
+                    "employee9Department": e.target.numberOfEmployees.value > 8 ? e.target.employee9Department.value : null,
+                    "employee9IsManager": e.target.numberOfEmployees.value > 8 ? e.target.employee9IsManager.checked : null,
+
+                }),
+            })
+            .catch(err => console.error("Download failed", err));
+        });
+
+
+
+    </script>
+</body>
+
+</html>
