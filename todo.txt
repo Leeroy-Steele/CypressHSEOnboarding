@@ -5,3 +5,9 @@ Make Settings > Site
 
 Better way to populate cypress.config?
 
+
+
+
+To run cypress from screipt in package.json
+
+* npm run HSEOnBoard
