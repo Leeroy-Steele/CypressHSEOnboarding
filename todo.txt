@@ -1,13 +1,15 @@
-Make into smaller tests (Better logging)
+✅ Duplicate cypress.io form under company name
+1. Make into smaller tests (Better logging)
+✅ Add ticket number field to form
+3. Internal notes to ticket:
+    * Company made - Started, need to finish in PA
+    * Main contact created
+    * Users created
+    * Remaining todo
+    * Welcome email
 
-Make departments
-Make Settings > Site
-
-Better way to populate cypress.config?
-
-
-
-
-To run cypress from screipt in package.json
-
-* npm run HSEOnBoard
+4. Make departments
+5. Make Settings > Site
+6. MTA notifications (Conditional)
+7. Format form / UI Better
+8. Loom 
