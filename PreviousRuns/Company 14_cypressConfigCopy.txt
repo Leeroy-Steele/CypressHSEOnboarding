@@ -26,7 +26,7 @@ module.exports = defineConfig({
 
 
       // Company info
-      COMPANY_NAME: "Company 12",
+      COMPANY_NAME: "Company 14",
       COMPANY_ADDRESS: "123 address goes here",
 
       // Main contact

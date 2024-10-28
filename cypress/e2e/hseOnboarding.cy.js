@@ -1,3 +1,5 @@
+// const cypress = require("cypress")
+
 let shortWait = 1000
 let mediumWait = 2000
 let LongWait = 3000
@@ -94,7 +96,7 @@ if(Cypress.env('NUMBER_OF_EMPLOYEES')>8){
 describe('Create new HSE company, induction process, users etc', () => {
 
   it.only('Create new company in HSE Connect', () => {
-    // // Login to HSE Preview
+    // Login to HSE Preview
     // cy.visit(Cypress.env('HSE_URL'))
 
     // // Login as super user
@@ -248,7 +250,7 @@ describe('Create new HSE company, induction process, users etc', () => {
 
 
 
-/////////////////////////// Shortcut to existing company
+///////////// Shortcut to existing company
 
     // Login to HSE Preview
     cy.visit(Cypress.env('HSE_URL'))
@@ -265,7 +267,7 @@ describe('Create new HSE company, induction process, users etc', () => {
     cy.get('.standard').click()
 
 
-///////////////////////////
+///////////////
 
 
 
@@ -332,10 +334,35 @@ describe('Create new HSE company, induction process, users etc', () => {
     
     
     // Add site
-    
-    
+      //// Select Company Settings
+      // cy.get('.hidden-print > [ui-sref="HSEManager.settings.companySettings"]').should('exist').click()
+      // cy.wait(shortWait)
+      
+      //// Add company address under sites
+      // cy.get('#site-title').type(Cypress.env('COMPANY_ADDRESS'))
+      // cy.get('.input_content > .button_ghost').should('exist').click()
 
-    // Add notifications?
+      //// Press Save
+      // cy.get('h3 > .pull-right > .button').should('exist').click()
+
+    // Add training notifications - MTA only
+      // select `Notifications` from top menu   
+      cy.get(':nth-child(3) > .hidden-xs > div').contains('Notifications').should('exist').click()
+
+      // select `+ New Training` Button
+      cy.get('.button').should('exist').click()
+
+      // Add Notification Title
+      
+      // Select `Training` Radio
+
+      // Select All departments button
+
+      // Add Due date (4 weeks from now??)
+      
+      
+
+    // Add SOP notifications - MTA only
 
 
   })
@@ -379,11 +406,8 @@ describe('Create new HSE company, induction process, users etc', () => {
         * Send Welcome Email	
       `)
     }
-    
-
-
   }
-
-
 )
+
+
 })
