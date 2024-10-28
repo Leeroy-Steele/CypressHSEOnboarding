@@ -3,11 +3,20 @@ const fs = require('fs');
 const path = require('path');
 const cors = require("cors");
 const { exec } = require('child_process');
+require('dotenv').config();
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors()); // Enable CORS for all routes
+
+const serverPort = 3000
+const serverURL = `http://localhost:${serverPort}`
+const HSEPreviewURL = `http://hseconnect.previewourapp.com/Login`
+// const HSEProductionURL = `https://www.hseconnect.co.nz/login`
+const HSEProductionURL = `https://www.google.com`
+
+console.log(process.env.HSE_PREV_SUPERUSER_PW)
 
 // Serve formV3.html from the root directory
 app.get('/', (req, res) => {
@@ -16,12 +25,13 @@ app.get('/', (req, res) => {
 });
 
 // Open the webpage form in the default browser
-exec('start http://localhost:3000');
+exec(`start ${serverURL}`);
 
 app.post('/download', (req, res) => {
 
   const {
     TicketID,
+    Environment,
 
     companyName,
     companyAddress,
@@ -82,7 +92,7 @@ app.post('/download', (req, res) => {
     employee9IsManager,
   } = req.body;
 
-console.log("Ticket ID is: "+TicketID)
+console.log("Environment is: "+Environment)
 
   // Create the cypress.config.js content dynamically
   const configContent = `
@@ -97,14 +107,14 @@ module.exports = defineConfig({
   },
   env: {
     //// CONSTANTS ////
-      //  sites
-      HSE_PREVIEW_URL: "http://hseconnect.previewourapp.com/Login",
+      //  HSE URL
+      HSE_URL: '${Environment==="Production" ? HSEProductionURL:HSEPreviewURL}',
 
       //  user logins
-      HSE_SUPER_USER_LOGIN_NAME: 'hse admin kyle',
+      HSE_SUPER_USER_LOGIN_NAME: '${Environment==="Production" ? process.env.HSE_PROD_SUPERUSER_LOGIN : process.env.HSE_PREV_SUPERUSER_LOGIN}',
 
       //  user passwords
-      HSE_SUPER_USER_PW: '123456',
+      HSE_SUPER_USER_PW: '${Environment==="Production" ? process.env.HSE_PROD_SUPERUSER_PW : process.env.HSE_PREV_SUPERUSER_PW}',
 
     //// VARIABLES ////
 
@@ -225,7 +235,7 @@ module.exports = defineConfig({
 
 });
 
-app.listen(3000, () => {
-  console.log("Server is running on http://localhost:3000");
+app.listen(serverPort, () => {
+  console.log(`Server is running on ${serverURL}`);
 });
 

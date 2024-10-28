@@ -5,90 +5,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form with Dynamic Employees</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+
 </head>
 
 <body>
-    <h1>Create and Download a File</h1>
-    <form class="w-full max-w-lg mx-auto p-4" method="POST">
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>      
+
+    <section class="bg-white dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
+        <div class="py-6 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
+
+            <h1 class="mb-6 text-3xl font-bold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Create Company in HSE</h1>
+
+            <div class="pt-6 max-w-screen-md mx-auto">
+
+                <p class="mb-2 text-xl font-normal text-gray-700 dark:text-gray-200">This form will trigger the server to:</p>
+                <hr class="mb-2" ></hr>
+                <p class="mb-2 text-md text-left font-normal text-gray-500 dark:text-gray-200">1. Create a Cypress.config.js file based on the form results</p>
+                <p class="mb-2 text-md text-left font-normal text-gray-500 dark:text-gray-200">2. Start the Cypress Automation</p>
+                <p class="mb-8 text-md text-left font-normal text-gray-500 dark:text-gray-200">3. Log progress on the onboarding ticket as an internal note</p>
+
+
+            </div>
+
+
+        </div>
+    </section>
+
+
+    <form class="w-full max-w-xl mx-auto p-4" method="POST">
 
 
         <!-- Onboarding ticket info -->
-        <div class="mb-4">
+        <div class="mb-6" >
             <label for="TicketID" class="block text-sm font-medium text-gray-700">Onboarding Ticket ID:</label>
-            <input type="text" id="TicketID" name="TicketID" class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="2043" required>
+            <input style="width:100px" type="text" id="TicketID" name="TicketID" class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="2043" required>
+            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400"><i>The onboarding ticket number is used for logging progress on the card (Internal Notes)</i> </p>
         </div>
 
 
         <!-- Company Info -->
-        <div class="mb-4">
-            <label for="companyName" class="block text-sm font-medium text-gray-700">Company Name:</label>
-            <input type="text" id="companyName" name="companyName" class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="Company 8" required>
-        </div>
-        <div class="mb-4">
-            <label for="companyAddress" class="block text-sm font-medium text-gray-700">Company Address:</label>
-            <input type="text" id="companyAddress" name="companyAddress" class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="123 address goes here" required>
-        </div>
+        <h5 class="text-xl dark:text-white text-center p-3">Company Information</h5>
+        <div class="border p-3" >
+
+            <!-- <div class="relative">
+                <label for="companyName" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Company Name:</label>
+                <input placeholder=" "  type="text" id="companyName" name="companyName" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value="Company 8" required>
+            </div> -->
+            <div class="relative my-3">
+                <input value="Company 8" type="text" id="companyName" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+                <label for="companyName" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Company Name:</label>
+            </div>
+
+
+            <!-- <div class="relative">
+                <label for="companyAddress" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Company Address:</label>
+                <input placeholder=" "  type="text" id="companyAddress" name="companyAddress" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value="123 address goes here" required>
+            </div> -->
+            <div class="relative my-3">
+                <input value="123 address goes here" type="text" id="companyAddress" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+                <label for="companyAddress" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Company Address:</label>
+            </div>
+            
+            <div class="mb-4">
+                <label for="isMTA" class="block text-sm font-medium text-gray-700">Is MTA:</label>
+                <input type="checkbox" id="isMTA" name="isMTA" class="mt-1 p-2 border border-gray-300 rounded-md">
+            </div>
+
+         </div>
 
         <!-- Main Contact Info -->
-        <div class="mb-4">
-            <label for="mainContactFirstName" class="block text-sm font-medium text-gray-700">Main Contact First Name:</label>
-            <input type="text" id="mainContactFirstName" name="mainContactFirstName"
-                class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="Jack" required>
-        </div>
-        <div class="mb-4">
-            <label for="mainContactLastName" class="block text-sm font-medium text-gray-700">Main Contact Last Name:</label>
-            <input type="text" id="mainContactLastName" name="mainContactLastName"
-                class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="Smith" required>
-        </div>
-        <div class="mb-4">
-            <label for="mainContactEmail" class="block text-sm font-medium text-gray-700">Main Contact Email:</label>
-            <input type="email" id="mainContactEmail" name="mainContactEmail"
-                class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="JackS@Email.com" required>
-        </div>
-        <div class="mb-4">
-            <label for="mainContactPhoneNumber" class="block text-sm font-medium text-gray-700">Phone Number:</label>
-            <input type="text" id="mainContactPhoneNumber" name="mainContactPhoneNumber"
-                class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="09 321 5432" required>
-        </div>
-        <div class="mb-4">
-            <label for="mainContactMobileNumber" class="block text-sm font-medium text-gray-700">Mobile Number:</label>
-            <input type="text" id="mainContactMobileNumber" name="mainContactMobileNumber"
-                class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="027 456 7890" required>
-        </div>
-        <div class="mb-4">
-            <label for="mainContactUsername" class="block text-sm font-medium text-gray-700">Username:</label>
-            <input type="text" id="mainContactUsername" name="mainContactUsername"
-                class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="Admin123" required>
-        </div>
-        <div class="mb-4">
-            <label for="mainContactPassword" class="block text-sm font-medium text-gray-700">Password:</label>
-            <input type="password" id="mainContactPassword" name="mainContactPassword"
-                class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="Pw1231231!" required>
+        <h5 class="text-xl dark:text-white text-center p-3">Main Contact Information</h5>
+        <div class="border p-3 grid gap-6 mb-6 md:grid-cols-2" >
+
+            <div class="mb-1">
+                <label for="mainContactFirstName" class="block text-sm font-medium text-gray-700">First Name:</label>
+                <input type="text" id="mainContactFirstName" name="mainContactFirstName"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="Jack" required>
+            </div>
+            <div class="mb-1">
+                <label for="mainContactLastName" class="block text-sm font-medium text-gray-700">Last Name:</label>
+                <input type="text" id="mainContactLastName" name="mainContactLastName"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="Smith" required>
+            </div>
+            <div class="mb-1">
+                <label for="mainContactEmail" class="block text-sm font-medium text-gray-700">Email:</label>
+                <input type="email" id="mainContactEmail" name="mainContactEmail"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="JackS@Email.com" required>
+            </div>
+            <div class="mb-1">
+                <label for="mainContactPhoneNumber" class="block text-sm font-medium text-gray-700">Phone Number:</label>
+                <input type="text" id="mainContactPhoneNumber" name="mainContactPhoneNumber"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="09 321 5432" required>
+            </div>
+            <div class="mb-1">
+                <label for="mainContactMobileNumber" class="block text-sm font-medium text-gray-700">Mobile Number:</label>
+                <input type="text" id="mainContactMobileNumber" name="mainContactMobileNumber"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="027 456 7890" required>
+            </div>
+            <div class="mb-1">
+                <label for="mainContactUsername" class="block text-sm font-medium text-gray-700">Username:</label>
+                <input type="text" id="mainContactUsername" name="mainContactUsername"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="Admin123" required>
+            </div>
+            <div class="mb-1">
+                <label for="mainContactPassword" class="block text-sm font-medium text-gray-700">Password:</label>
+                <input type="password" id="mainContactPassword" name="mainContactPassword"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="Pw1231231!" required>
+            </div>
         </div>
 
-        <!-- Company Details -->
-        <div class="mb-4">
-            <label for="isMTA" class="block text-sm font-medium text-gray-700">Is MTA:</label>
-            <input type="checkbox" id="isMTA" name="isMTA" class="mt-1 p-2 border border-gray-300 rounded-md">
-        </div>
 
 
         <!-- Number of Employees -->
-        <div class="mb-4">
+        <h5 class="text-xl dark:text-white text-center p-3">Employee Information</h5>
+        <div class="mb-4 m-3" >
             <label for="numberOfEmployees" class="block text-sm font-medium text-gray-700">Number of Employees:</label>
-            <input type="number" id="numberOfEmployees" name="numberOfEmployees" min="1" value="1" max="9" class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="John" required>
+            <input style="width:100px" type="number" id="numberOfEmployees" name="numberOfEmployees" min="1" value="1" max="9" class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="John" required>
+            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400"><i>Number of employees is not including the main contact</i> </p>
+
         </div>
 
         <!-- Employee Fields -->
-        <div id="employees-container"></div>
+        <div id="employees-container" class="border p-3 grid gap-6 mb-6 md:grid-cols-2" ></div>
 
-        <!-- Submit -->
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Generate Config</button>
+        <!-- Preview / Production selector -->
+        <div class="flex flex-wrap md:flex-nowrap items-center ps-4 space-x-1">
+
+            <div class="p-3 flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                <input checked id="environmentRadio1" type="radio" value="Preview" name="Environment-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="borderedRadio1" class="w-full ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Create in Preview</label>
+            </div>
+            <div class="p-3 flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                <input  id="environmentRadio2" type="radio" value="Production" name="Environment-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label  for="borderedRadio2" class="w-full ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Create in Production</label>
+            </div>
+
+            <!-- Submit -->
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-4 rounded mx-auto" type="submit">Start Automation</button>
+
+        </div>
+
+
+
+
     </form>
+
+    <h1 id="1"></h1>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+
             const employeesContainer = document.getElementById('employees-container');
             const numberOfEmployeesInput = document.getElementById('numberOfEmployees');
 
@@ -99,22 +167,22 @@
                 const numberOfEmployees = parseInt(numberOfEmployeesInput.value);
                 for (let i = 1; i <= numberOfEmployees; i++) {
                     const employeeDiv = document.createElement('div');
-                    employeeDiv.classList.add('mb-4');
+                    employeeDiv.classList.add('m-3');
                     employeeDiv.innerHTML = `
-                        <div class="mb-4">
-                            <label for="employee${i}Name" class="block text-sm font-medium text-gray-700">Employee ${i} Name:</label>
-                            <input type="text" id="employee${i}Name" name="employee${i}Name" class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="John P" required>
+                        <div class="m-3" style="margin:10px">
+                            <label for="employee${i}Name" class="block text-sm font-medium text-gray-700 ">Employee ${i} Name:</label>
+                            <input type="text" id="employee${i}Name" name="employee${i}Name" class="mt-1 p-2 border border-gray-300 rounded-md" value="John P" required>
                         </div>
-                        <div class="mb-4">
-                            <label for="employee${i}Email" class="block text-sm font-medium text-gray-700">Employee ${i} Email:</label>
-                            <input type="email" id="employee${i}Email" name="employee${i}Email" class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="JohnP@Email.com" required>
+                        <div class="m-3" style="margin:10px">
+                            <label for="employee${i}Email" class="block text-sm font-medium text-gray-700 ">Employee ${i} Email:</label>
+                            <input type="email" id="employee${i}Email" name="employee${i}Email" class="mt-1 p-2 border border-gray-300 rounded-md" value="JohnP@Email.com" required>
                         </div>
-                        <div class="mb-4">
-                            <label for="employee${i}Department" class="block text-sm font-medium text-gray-700">Employee ${i} Department:</label>
-                            <input type="text" id="employee${i}Department" name="employee${i}Department" class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="Johns Department" required>
+                        <div class="m-3" style="margin:10px">
+                            <label for="employee${i}Department" class="block text-sm font-medium text-gray-700 ">Employee ${i} Department:</label>
+                            <input type="text" id="employee${i}Department" name="employee${i}Department" class="mt-1 p-2 border border-gray-300 rounded-md" value="Johns Department" required>
                         </div>
-                        <div class="mb-4">
-                            <label for="employee${i}IsManager" class="block text-sm font-medium text-gray-700">Employee ${i} Is Manager:</label>
+                        <div class="m-3" style="margin:10px">
+                            <label for="employee${i}IsManager" class="block text-sm font-medium text-gray-700 ">Employee ${i} Is Manager:</label>
                             <input type="checkbox" id="employee${i}IsManager" name="employee${i}IsManager">
                         </div>
                     `;
@@ -142,6 +210,7 @@
                 headers: myHeaders,
                 body: JSON.stringify({
                     "TicketID": e.target.TicketID.value,
+                    "Environment" : e.target.environmentRadio1.checked?"Preview":"Production",
 
                     "companyName": e.target.companyName.value,
                     "companyAddress": e.target.companyAddress.value,
