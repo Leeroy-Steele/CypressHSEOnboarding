@@ -12,11 +12,6 @@ app.use(cors()); // Enable CORS for all routes
 
 const serverPort = 3000
 const serverURL = `http://localhost:${serverPort}`
-const HSEPreviewURL = `http://hseconnect.previewourapp.com/Login`
-// const HSEProductionURL = `https://www.hseconnect.co.nz/login`
-const HSEProductionURL = `https://www.google.com`
-
-console.log(process.env.HSE_PREV_SUPERUSER_PW)
 
 // Serve formV3.html from the root directory
 app.get('/', (req, res) => {
@@ -94,6 +89,16 @@ app.post('/download', (req, res) => {
 
 console.log("Environment is: "+Environment)
 
+// Create department compare logic here
+let departmentArr = [employee1Department, employee2Department,employee3Department,employee4Department,employee5Department,employee6Department,employee7Department,employee8Department,employee9Department]
+let previousMatchingDepartments = new Set();
+
+let employeeDepartmentsArray = departmentArr.map(str => {
+  let isMatch = previousMatchingDepartments.has(str);
+  previousMatchingDepartments.add(str);
+  return { string: str, isMatch };
+})
+
   // Create the cypress.config.js content dynamically
   const configContent = `
 
@@ -108,7 +113,7 @@ module.exports = defineConfig({
   env: {
     //// CONSTANTS ////
       //  HSE URL
-      HSE_URL: '${Environment==="Production" ? HSEProductionURL:HSEPreviewURL}',
+      HSE_URL: '${Environment==="Production" ?  process.env.HSE_PROD_URL:process.env.HSE_PREV_URL}',
 
       //  user logins
       HSE_SUPER_USER_LOGIN_NAME: '${Environment==="Production" ? process.env.HSE_PROD_SUPERUSER_LOGIN : process.env.HSE_PREV_SUPERUSER_LOGIN}',
@@ -145,54 +150,63 @@ module.exports = defineConfig({
       Employee1_NAME: "${employee1Name}",
       Employee1_EMAIL: "${employee1Email}",
       Employee1_DEPARTMENT: "${employee1Department}",
+      Employee1_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[0].isMatch}",
       Employee1_IS_MANAGER: ${employee1IsManager},
 
       // Employee 2 info
       Employee2_NAME: "${employee2Name}",
       Employee2_EMAIL: "${employee2Email}",
       Employee2_DEPARTMENT: "${employee2Department}",
+      Employee2_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[1].isMatch}",  
       Employee2_IS_MANAGER: ${employee2IsManager},
 
       // Employee 3 info
       Employee3_NAME: "${employee3Name}",
       Employee3_EMAIL: "${employee3Email}",
       Employee3_DEPARTMENT: "${employee3Department}",
+      Employee3_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[2].isMatch}",  
       Employee3_IS_MANAGER: ${employee3IsManager},
 
       // Employee 4 info
       Employee4_NAME: "${employee4Name}",
       Employee4_EMAIL: "${employee4Email}",
       Employee4_DEPARTMENT: "${employee4Department}",
+      Employee4_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[3].isMatch}",  
       Employee4_IS_MANAGER: ${employee4IsManager},
 
       // Employee 5 info
       Employee5_NAME: "${employee5Name}",
       Employee5_EMAIL: "${employee5Email}",
       Employee5_DEPARTMENT: "${employee5Department}",
+      Employee5_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[4].isMatch}",  
       Employee5_IS_MANAGER: ${employee5IsManager},
 
       // Employee 6 info
       Employee6_NAME: "${employee6Name}",
       Employee6_EMAIL: "${employee6Email}",
       Employee6_DEPARTMENT: "${employee6Department}",
+      Employee6_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[5].isMatch}",  
       Employee6_IS_MANAGER: ${employee6IsManager},
 
       // Employee 7 info
       Employee7_NAME: "${employee7Name}",
       Employee7_EMAIL: "${employee7Email}",
       Employee7_DEPARTMENT: "${employee7Department}",
+      Employee7_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[6].isMatch}",  
       Employee7_IS_MANAGER: ${employee7IsManager},
 
       // Employee 8 info
       Employee8_NAME: "${employee8Name}",
       Employee8_EMAIL: "${employee8Email}",
       Employee8_DEPARTMENT: "${employee8Department}",
+      Employee8_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[7].isMatch}",  
       Employee8_IS_MANAGER: ${employee8IsManager},
 
       // Employee 9 info
       Employee9_NAME: "${employee9Name}",
       Employee9_EMAIL: "${employee9Email}",
       Employee9_DEPARTMENT: "${employee9Department}",
+      Employee9_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[8].isMatch}",  
       Employee9_IS_MANAGER: ${employee9IsManager},
 
   },
@@ -201,8 +215,8 @@ module.exports = defineConfig({
 
   // Define the path where the cypress.config.js file will be saved
   const filePath = path.join(__dirname, 'cypress.config.js');
-  const file2Path = path.join(__dirname, `${companyName}_cypressConfigCopy.txt`);
-
+  const file2Path = path.join(__dirname, `/PreviousRuns/${companyName}_cypressConfigCopy.txt`);
+console.log(file2Path)
   // Write the content to the file
   fs.writeFile(filePath, configContent, (err) => {
     if (err) {

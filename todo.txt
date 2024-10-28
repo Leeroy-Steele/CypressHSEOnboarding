@@ -1,15 +1,16 @@
 ✅ Duplicate cypress.io form under company name
-1. Make into smaller tests (Better logging)
 ✅ Add ticket number field to form
+✅ Add Departments / Assign to user 
+✅ Add HSE Role based on manager or not
 3. Internal notes to ticket:
-    * Company made - Started, need to finish in PA
+    * Company made
     * Main contact created
     * Users created
     * Remaining todo
     * Welcome email
 
-4. Make departments
 5. Make Settings > Site
 6. MTA notifications (Conditional)
+Add User Login Name
 7. Format form / UI Better
 8. Loom 

@@ -60,6 +60,77 @@ Cypress.Commands.add('ticketInternalNote', (note) => {
 
  })
 
+ Cypress.Commands.add('createHseUser_ExistingDepartment', (name, email, Department, IsManager) => { 
+    // Select New User
+    cy.get('.report > div.ng-scope > .ng-scope > h2.clearfix > .button').should('exist').click()
+    cy.wait(3000)
+    // Add login name
+    cy.get(':nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(2) > [placeholder="Login Name"][type="text"]').type(email)
+    cy.wait(1000)
+    // Add display name
+    cy.get(':nth-child(1) > .textbox').type(name)
+    cy.wait(1000)
+    // Add Email
+    cy.get(':nth-child(2) > .input_content > .clearfix > :nth-child(1) > .ng-pristine').type(email)
+    cy.wait(1000)
+    
+    // IF IsManager === true. Assign HSE manager role
+    if(IsManager){
+      cy.get('.padding-right-col-sm > .dropdown > .button').click()
+      cy.get('.Manager_check').click()
+    }
+
+    // Set Department
+    cy.get(':nth-child(2) > .dropdown > .dropdown-button').click()
+    cy.get(':nth-child(2) > .dropdown > .dropdown-menu').contains(Department).click()
+
+    // Save user
+    cy.get('.pull-right > .button').should('exist').click()
+    cy.wait(1000)
+    cy.ticketInternalNote(`
+      Created user ${name} in HSE`)
+    // Go Back
+    cy.get('.clearfix.ng-binding > .button').should('exist').click()
+
+})
+
+Cypress.Commands.add('createHseUser_NewDepartment', (name, email, Department, IsManager) => { 
+    // Select New User
+    cy.get('.report > div.ng-scope > .ng-scope > h2.clearfix > .button').should('exist').click()
+    cy.wait(3000)
+    // Add login name
+    cy.get(':nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(2) > [placeholder="Login Name"][type="text"]').type(email)
+    cy.wait(1000)
+    // Add display name
+    cy.get(':nth-child(1) > .textbox').type(name)
+    cy.wait(1000)
+    // Add Email
+    cy.get(':nth-child(2) > .input_content > .clearfix > :nth-child(1) > .ng-pristine').type(email)
+    cy.wait(1000)
+
+    // IF IsManager === true. Assign HSE manager role
+    if(IsManager){
+      cy.get('.padding-right-col-sm > .dropdown > .button').click()
+      cy.get('.Manager_check').click()
+    }
+
+    // Create / Set Department
+    cy.get(':nth-child(2) > .dropdown > .dropdown-button').click()
+    cy.get('.wide_container > .textbox').type(Department)
+    cy.get('.wide_container > .button').click()
+    cy.get(':nth-child(2) > .dropdown > .dropdown-menu').contains(Department).click()
+
+    // Save user
+    cy.get('.pull-right > .button').should('exist').click()
+    cy.wait(1000)
+    cy.ticketInternalNote(`
+      Created user ${name} in HSE`)
+    // Go Back
+    cy.get('.clearfix.ng-binding > .button').should('exist').click()
+
+
+})
+
 
 
 
