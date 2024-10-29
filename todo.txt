@@ -3,14 +3,15 @@
 ✅ Add Departments / Assign to user 
 ✅ Add HSE Role based on manager or not
 3. Internal notes to ticket:
-    * Company made
-    * Main contact created
-    * Users created
-    * Remaining todo
+    * Company made ✅
+    * Main contact created ✅
+    * Users created ✅
+    * Remaining todo ✅
     * Welcome email
 
-5. Make Settings > Site
-6. MTA notifications (Conditional)
-Add User Login Name
-7. Format form / UI Better
-8. Loom 
+5. Make Settings > Site ✅
+6. MTA notifications (Conditional) ✅
+7. Add User Login Name
+8. Add Admin Checklists??
+9. Format form / UI Better
+10. Loom 

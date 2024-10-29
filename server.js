@@ -42,46 +42,55 @@ app.post('/download', (req, res) => {
     mainContactPassword,
 
     employee1Name,
+    employee1LoginName,
     employee1Email,
     employee1Department,
     employee1IsManager,
 
     employee2Name,
+    employee2LoginName,
     employee2Email,
     employee2Department,
     employee2IsManager,
 
     employee3Name,
+    employee3LoginName,
     employee3Email,
     employee3Department,
     employee3IsManager,
 
     employee4Name,
+    employee4LoginName,
     employee4Email,
     employee4Department,
     employee4IsManager,
 
     employee5Name,
+    employee5LoginName,
     employee5Email,
     employee5Department,
     employee5IsManager,
 
     employee6Name,
+    employee6LoginName,
     employee6Email,
     employee6Department,
     employee6IsManager,
 
     employee7Name,
+    employee7LoginName,
     employee7Email,
     employee7Department,
     employee7IsManager,
 
     employee8Name,
+    employee8LoginName,
     employee8Email,
     employee8Department,
     employee8IsManager,
 
     employee9Name,
+    employee9LoginName,
     employee9Email,
     employee9Department,
     employee9IsManager,
@@ -98,6 +107,26 @@ let employeeDepartmentsArray = departmentArr.map(str => {
   previousMatchingDepartments.add(str);
   return { string: str, isMatch };
 })
+
+
+// Add Due date for trainings (4 weeks from now)
+function getDateFourWeeksFromNow() {
+  const today = new Date();
+  const fourWeeksFromNow = new Date(today);
+  
+  // Add 4 weeks (28 days)
+  fourWeeksFromNow.setDate(today.getDate() + 28);
+  
+  // Format the date to DD-MM-YYYY
+  const day = String(fourWeeksFromNow.getDate()).padStart(2, '0');
+  const month = String(fourWeeksFromNow.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+  const year = fourWeeksFromNow.getFullYear();
+  return `${day}-${month}-${year}`;
+}
+
+
+
+
 
   // Create the cypress.config.js content dynamically
   const configContent = `
@@ -142,12 +171,14 @@ module.exports = defineConfig({
 
       // Is MTA
       IS_MTA: ${isMTA},
+      TRAINING_DUE_DATE: '${getDateFourWeeksFromNow()}',
 
       // Number of employees
       NUMBER_OF_EMPLOYEES: ${numberOfEmployees},
 
       // Employee 1 info
       Employee1_NAME: "${employee1Name}",
+      Employee1_LOGIN_NAME: "${employee1LoginName}",
       Employee1_EMAIL: "${employee1Email}",
       Employee1_DEPARTMENT: "${employee1Department}",
       Employee1_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[0].isMatch}",
@@ -155,6 +186,7 @@ module.exports = defineConfig({
 
       // Employee 2 info
       Employee2_NAME: "${employee2Name}",
+      Employee2_LOGIN_NAME: "${employee2LoginName}", 
       Employee2_EMAIL: "${employee2Email}",
       Employee2_DEPARTMENT: "${employee2Department}",
       Employee2_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[1].isMatch}",  
@@ -162,6 +194,7 @@ module.exports = defineConfig({
 
       // Employee 3 info
       Employee3_NAME: "${employee3Name}",
+      Employee3_LOGIN_NAME: "${employee3LoginName}",
       Employee3_EMAIL: "${employee3Email}",
       Employee3_DEPARTMENT: "${employee3Department}",
       Employee3_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[2].isMatch}",  
@@ -169,6 +202,7 @@ module.exports = defineConfig({
 
       // Employee 4 info
       Employee4_NAME: "${employee4Name}",
+      Employee4_LOGIN_NAME: "${employee4LoginName}",
       Employee4_EMAIL: "${employee4Email}",
       Employee4_DEPARTMENT: "${employee4Department}",
       Employee4_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[3].isMatch}",  
@@ -176,6 +210,7 @@ module.exports = defineConfig({
 
       // Employee 5 info
       Employee5_NAME: "${employee5Name}",
+      Employee5_LOGIN_NAME: "${employee5LoginName}",
       Employee5_EMAIL: "${employee5Email}",
       Employee5_DEPARTMENT: "${employee5Department}",
       Employee5_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[4].isMatch}",  
@@ -183,6 +218,7 @@ module.exports = defineConfig({
 
       // Employee 6 info
       Employee6_NAME: "${employee6Name}",
+      Employee6_LOGIN_NAME: "${employee6LoginName}",
       Employee6_EMAIL: "${employee6Email}",
       Employee6_DEPARTMENT: "${employee6Department}",
       Employee6_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[5].isMatch}",  
@@ -190,6 +226,7 @@ module.exports = defineConfig({
 
       // Employee 7 info
       Employee7_NAME: "${employee7Name}",
+      Employee7_LOGIN_NAME: "${employee7LoginName}",
       Employee7_EMAIL: "${employee7Email}",
       Employee7_DEPARTMENT: "${employee7Department}",
       Employee7_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[6].isMatch}",  
@@ -197,6 +234,7 @@ module.exports = defineConfig({
 
       // Employee 8 info
       Employee8_NAME: "${employee8Name}",
+      Employee8_LOGIN_NAME: "${employee8LoginName}",
       Employee8_EMAIL: "${employee8Email}",
       Employee8_DEPARTMENT: "${employee8Department}",
       Employee8_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[7].isMatch}",  
@@ -204,6 +242,7 @@ module.exports = defineConfig({
 
       // Employee 9 info
       Employee9_NAME: "${employee9Name}",
+      Employee9_LOGIN_NAME: "${employee9LoginName}",
       Employee9_EMAIL: "${employee9Email}",
       Employee9_DEPARTMENT: "${employee9Department}",
       Employee9_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[8].isMatch}",  

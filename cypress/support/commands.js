@@ -1,15 +1,4 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
+
 Cypress.Commands.add('ticketInternalNote', (note) => { 
     // For webhook to Power Automate. Flow is here -> `https://make.powerautomate.com/environments/2e21e621-fcf3-eae1-a4d1-9e02b3152fc8/flows/96d7de0a-c2fb-4a1b-940e-e541d79058b4/runs/08584732557519775569424720085CU26`
 
@@ -60,12 +49,12 @@ Cypress.Commands.add('ticketInternalNote', (note) => {
 
  })
 
- Cypress.Commands.add('createHseUser_ExistingDepartment', (name, email, Department, IsManager) => { 
+ Cypress.Commands.add('createHseUser_ExistingDepartment', (name, loginName, email, Department, IsManager) => { 
     // Select New User
     cy.get('.report > div.ng-scope > .ng-scope > h2.clearfix > .button').should('exist').click()
     cy.wait(3000)
     // Add login name
-    cy.get(':nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(2) > [placeholder="Login Name"][type="text"]').type(email)
+    cy.get(':nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(2) > [placeholder="Login Name"][type="text"]').type(loginName)
     cy.wait(1000)
     // Add display name
     cy.get(':nth-child(1) > .textbox').type(name)
@@ -94,12 +83,12 @@ Cypress.Commands.add('ticketInternalNote', (note) => {
 
 })
 
-Cypress.Commands.add('createHseUser_NewDepartment', (name, email, Department, IsManager) => { 
+Cypress.Commands.add('createHseUser_NewDepartment', (name, loginName, email, Department, IsManager) => { 
     // Select New User
     cy.get('.report > div.ng-scope > .ng-scope > h2.clearfix > .button').should('exist').click()
     cy.wait(3000)
     // Add login name
-    cy.get(':nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(2) > [placeholder="Login Name"][type="text"]').type(email)
+    cy.get(':nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(2) > [placeholder="Login Name"][type="text"]').type(loginName)
     cy.wait(1000)
     // Add display name
     cy.get(':nth-child(1) > .textbox').type(name)
@@ -128,12 +117,25 @@ Cypress.Commands.add('createHseUser_NewDepartment', (name, email, Department, Is
     // Go Back
     cy.get('.clearfix.ng-binding > .button').should('exist').click()
 
-
 })
 
 
 
 
+
+
+// ***********************************************
+// This example commands.js shows you how to
+// create various custom commands and overwrite
+// existing commands.
+//
+// For more comprehensive examples of custom
+// commands please read more here:
+// https://on.cypress.io/custom-commands
+// ***********************************************
+//
+//
+// -- This is a parent command --
 //
 //
 // -- This is a child command --
