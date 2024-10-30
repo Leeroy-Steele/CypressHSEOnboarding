@@ -11,7 +11,7 @@
 
 5. Make Settings > Site ✅
 6. MTA notifications (Conditional) ✅
-7. Add User Login Name
+7. Add User Login Name ✅
 8. Add Admin Checklists??
 9. Format form / UI Better
 10. Loom 

@@ -92,10 +92,31 @@ if(Cypress.env('NUMBER_OF_EMPLOYEES')>8){
   }
 }
 
+const CreatedNotificationsMessage =   
+`
+#### Created Notifications:
+
+|Type|Name|
+|--|--|
+|Training|Take 5 Step Back and Think|
+|Training|Workshop - Common Hazards|
+|SOP|SOP Library|
+  
+`
+
+const CreatedCompanyInHSEMessage =   
+`
+#### (From CypressIO Automation)
+
+|New company created in:|Company name:|
+|--|--|
+|${Cypress.env('HSE_URL')} |${Cypress.env('COMPANY_NAME')} |
+  
+`
 
 describe('Create new HSE company, induction process, users etc', () => {
 
-  it('Create new company in HSE Connect', () => {
+  it.only('Create new company in HSE Connect', () => {
     // Login to HSE Preview
     cy.visit(Cypress.env('HSE_URL'))
 
@@ -142,11 +163,7 @@ describe('Create new HSE company, induction process, users etc', () => {
       cy.get('.Save').click()
       cy.wait(shortWait)
 
-        cy.ticketInternalNote(`
-        (From CypressIO Automation)
-          New company created in: ${Cypress.env('HSE_URL')} 
-          Company name: ${Cypress.env('COMPANY_NAME')} 
-        `)
+    cy.ticketInternalNote(CreatedCompanyInHSEMessage)
 
 
     // Manage new Company
@@ -311,10 +328,8 @@ describe('Create new HSE company, induction process, users etc', () => {
         cy.get('.pull-right > .button').should('exist').click()
         cy.wait(shortWait)
         cy.ticketInternalNote(`
-          Created HSE Manager in ${Cypress.env('COMPANY_NAME')}
-          Login Name: ${Cypress.env('MAIN_CONTACT_USERNAME')}
-          Password: ${Cypress.env('MAIN_CONTACT_PASSWORD')}
-          `)
+          Created HSE Manager in ${Cypress.env('COMPANY_NAME')}`)
+
         // Go Back
         cy.get('.clearfix.ng-binding > .button').should('exist').click()
 
@@ -446,13 +461,17 @@ describe('Create new HSE company, induction process, users etc', () => {
         // Select Back button
         cy.wait(LongWait)
         cy.get('h2.clearfix > .button').contains('Back').click()
-      }
+
+        cy.ticketInternalNote(CreatedNotificationsMessage)
+
+
+      // }
 
 
 
   })
 
-  it.only('Create contacts in Lancom Button', () => {
+  it('Create contacts in Lancom Button', () => {
     // Do with webhook to Power Automate. Flow is here -> `https://make.powerautomate.com/environments/2e21e621-fcf3-eae1-a4d1-9e02b3152fc8/flows/96d7de0a-c2fb-4a1b-940e-e541d79058b4/runs/08584732557519775569424720085CU26`
     cy.createContact(`${Cypress.env('MAIN_CONTACT_FIRST_NAME')}`, `${Cypress.env('MAIN_CONTACT_EMAIL')}`)
     cy.ticketInternalNote(`Created main contact in lancom button`)
@@ -466,29 +485,82 @@ describe('Create new HSE company, induction process, users etc', () => {
     }
   })
 
-  it.only('Final task - Internal note remaining tasks on onboarding ticket', () => {
+  let pwLink 
+  it.only('Create secure HSE Manager password link with https://1ty.me/', () => {
+    
+    
+    cy.visit('https://1ty.me/')
+    cy.get('#note_box_main').type(Cypress.env('MAIN_CONTACT_PASSWORD'))
+    
+    // Generate link
+    cy.get(':nth-child(1) > .btn').click()
+    cy.wait(mediumWait)
+
+    // Copy Link
+    cy.get('#link').invoke('val').as('extractedText'); 
+    cy.get('@extractedText').then((text) => {
+      cy.log(`Extracted text is: ${text}`);
+      pwLink = text
+    });
+
+  }
+)
+
+  it.only('Internal note welcome email template on onboarding ticket', () => {
+  // Do with webhook to Power Automate. Flow is here -> `https://make.powerautomate.com/environments/2e21e621-fcf3-eae1-a4d1-9e02b3152fc8/flows/96d7de0a-c2fb-4a1b-940e-e541d79058b4/runs/08584732557519775569424720085CU26`
+  
+  let welcomeEmailNote = 
+  `
+  #### For the welcome email:
+
+  ***
+  ##### *HSE Manager:*
+
+  |HSE Manager Login Name|HSE Manager PW Link|
+  |--|--| 
+  |${Cypress.env('MAIN_CONTACT_EMAIL')}|${pwLink}|
+
+
+  ***
+  ##### *Employee Login Details:*
+
+  | Employee Name | HSE Connect Login Name |
+  | ------------- | ---------------------- |
+  `
+
+  // add employees to welcome note based on how many there are
+  for(let i = 1; i <= Cypress.env('NUMBER_OF_EMPLOYEES') ; i++){
+    welcomeEmailNote += `|${Cypress.env(`Employee${i}_NAME`)}|${Cypress.env(`Employee${i}_LOGIN_NAME`)}|
+    `
+  }
+  
+  cy.ticketInternalNote(welcomeEmailNote)
+  }
+)
+
+
+  it('Final task - Internal note remaining tasks on onboarding ticket', () => {
     // Do with webhook to Power Automate. Flow is here -> `https://make.powerautomate.com/environments/2e21e621-fcf3-eae1-a4d1-9e02b3152fc8/flows/96d7de0a-c2fb-4a1b-940e-e541d79058b4/runs/08584732557519775569424720085CU26`
     
     if(Cypress.env(`IS_MTA`)){
       cy.ticketInternalNote(`
-        Automation complete. You need to complete the remaining tasks:
+      #### Automation complete. You need to complete the remaining tasks:
 
-        * Upload induction documents (For Contractor, Visitor, Worker)
-        * Upload Training Docs (Notifications)
-        * Settings > Add company logo
-        * Send MTA Admin Checklists
-        * Check customer payment (Stripe or invoices from accounts)
-        * Send Welcome Email	
+      1. Upload Induction Documents (For Contractor, Visitor, Worker)
+      2. Upload Notification Docs (2 x Training & 1 SOP)
+      3. HSE > Manage Company > Settings > Add Company Logo
+      4. HSE > Checklists > Send MTA Admin Checklists
+      5. Check Customer Payment (Stripe or invoices from accounts)
+      6. Send Welcome Email	
       `)
     }else{
       cy.ticketInternalNote(`
-        Automation complete. You need to complete the remaining tasks:
+      #### Automation complete. You need to complete the remaining tasks:
 
-        * Upload induction documents (For Contractor, Visitor, Worker)
-        * Upload Training Docs (Notifications)
-        * Settings > Add company logo
-        * Check customer payment (Stripe or invoices from accounts)
-        * Send Welcome Email	
+      1. Upload induction documents (For Contractor, Visitor, Worker)
+      2. HSE > Manage Company > Settings > Add Company Logo
+      3. Check Customer Payment (Stripe or invoices from accounts)
+      4. Send Welcome Email	
       `)
     }
   }
