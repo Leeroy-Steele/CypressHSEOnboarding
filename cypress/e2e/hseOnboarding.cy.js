@@ -116,7 +116,7 @@ const CreatedCompanyInHSEMessage =
 
 describe('Create new HSE company, induction process, users etc', () => {
 
-  it.only('Create new company in HSE Connect', () => {
+  it('Create new company in HSE Connect', () => {
     // Login to HSE Preview
     cy.visit(Cypress.env('HSE_URL'))
 
@@ -486,7 +486,7 @@ describe('Create new HSE company, induction process, users etc', () => {
   })
 
   let pwLink 
-  it.only('Create secure HSE Manager password link with https://1ty.me/', () => {
+  it('Create secure HSE Manager password link with https://1ty.me/', () => {
     
     
     cy.visit('https://1ty.me/')
@@ -506,7 +506,7 @@ describe('Create new HSE company, induction process, users etc', () => {
   }
 )
 
-  it.only('Internal note welcome email template on onboarding ticket', () => {
+  it('Internal note welcome email template on onboarding ticket', () => {
   // Do with webhook to Power Automate. Flow is here -> `https://make.powerautomate.com/environments/2e21e621-fcf3-eae1-a4d1-9e02b3152fc8/flows/96d7de0a-c2fb-4a1b-940e-e541d79058b4/runs/08584732557519775569424720085CU26`
   
   let welcomeEmailNote = 

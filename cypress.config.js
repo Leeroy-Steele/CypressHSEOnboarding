@@ -22,20 +22,20 @@ module.exports = defineConfig({
     //// VARIABLES ////
 
       // Onboarding Ticket ID
-      TicketID: "2075",
+      TicketID: "2076",
 
 
       // Company info
-      COMPANY_NAME: "Company 30",
+      COMPANY_NAME: "Company 31",
       COMPANY_ADDRESS: "123 address goes here",
 
       // Main contact
       MAIN_CONTACT_FIRST_NAME: "Tom",
       MAIN_CONTACT_LAST_NAME: "Smithy",
-      MAIN_CONTACT_EMAIL: "TomS@Email.com",
+      MAIN_CONTACT_EMAIL: "TomSS@Email.com",
       MAIN_CONTACT_PHONE_NUMBER: "09 321 5432",
       MAIN_CONTACT_MOBILE_NUMBER: "027 456 7890",
-      MAIN_CONTACT_USERNAME: "AdminC30",
+      MAIN_CONTACT_USERNAME: "AdminC31",
       MAIN_CONTACT_PASSWORD: "Pw1231231!",
 
       // Is MTA
@@ -94,11 +94,11 @@ module.exports = defineConfig({
       Employee6_IS_MANAGER: false,
 
       // Employee 7 info
-      Employee7_NAME: "John P",
-      Employee7_LOGIN_NAME: "J1 i dont have an email",
-      Employee7_EMAIL: "JohnP@Email.com",
-      Employee7_DEPARTMENT: "Workshop 2",
-      Employee7_DEPARTMENT_ALREADY_EXISTS: "true",  
+      Employee7_NAME: "Emp 7",
+      Employee7_LOGIN_NAME: "Emp7@Email.com",
+      Employee7_EMAIL: "Emp7@Email.com",
+      Employee7_DEPARTMENT: "Workshop 3",
+      Employee7_DEPARTMENT_ALREADY_EXISTS: "false",  
       Employee7_IS_MANAGER: false,
 
       // Employee 8 info
