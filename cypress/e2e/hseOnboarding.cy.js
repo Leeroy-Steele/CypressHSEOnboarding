@@ -465,7 +465,7 @@ describe('Create new HSE company, induction process, users etc', () => {
         cy.ticketInternalNote(CreatedNotificationsMessage)
 
 
-      // }
+      }
 
 
 
