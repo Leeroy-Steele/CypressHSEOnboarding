@@ -15,7 +15,7 @@ const serverURL = `http://localhost:${serverPort}`
 
 // Serve formV3.html from the root directory
 app.get('/', (req, res) => {
-  const filePath = path.join(__dirname, 'formV3.html');
+  const filePath = path.join(__dirname, 'form.html');
   res.sendFile(filePath);
 });
 

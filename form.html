@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form with Dynamic Employees</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+
+</head>
+
+<body class="bg-white dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>      
+    <section class="max-w-full mx-auto p-4 bg-white m-6">
+        <div class="py-6 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
+
+            <h1 class="mb-6 text-3xl font-bold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Create Company in HSE</h1>
+
+        </div>
+    </section>
+
+    <form class="w-full max-w-xl mx-auto p-4 bg-white mx-6" method="POST">
+
+
+        <!-- Onboarding ticket info -->
+        <div class="mb-6" >
+            <label for="TicketID" class="block text-sm font-medium text-gray-700">Onboarding Ticket ID:</label>
+            <input style="width:100px" type="text" id="TicketID" name="TicketID" class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="2043" required>
+            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400"><i>The onboarding ticket number is used for logging progress on the card (Internal Notes)</i> </p>
+        </div>
+
+
+        <!-- Company Info -->
+        <h5 class="text-xl dark:text-white text-center p-3">Company Information</h5>
+        <div class="border p-3" >
+
+            <div class="relative my-3">
+                <input value="Company 8" type="text" id="companyName" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+                <label for="companyName" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Company Name:</label>
+            </div>
+
+            <div class="relative my-3">
+                <input value="123 address goes here" type="text" id="companyAddress" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+                <label for="companyAddress" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Company Address:</label>
+            </div>
+            
+            <div class="mb-4">
+                <label for="isMTA" class="block text-sm font-medium text-gray-700">Is MTA:</label>
+                <input type="checkbox" id="isMTA" name="isMTA" class="mt-1 p-2 border border-gray-300 rounded-md">
+            </div>
+
+         </div>
+
+        <!-- Main Contact Info -->
+        <h5 class="text-xl dark:text-white text-center p-3">Main Contact Information</h5>
+        <div class="border p-3 grid gap-6 mb-6 md:grid-cols-2" >
+
+            <div class="mb-1">
+                <label for="mainContactFirstName" class="block text-sm font-medium text-gray-700">First Name:</label>
+                <input type="text" id="mainContactFirstName" name="mainContactFirstName"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="Jack" required>
+            </div>
+            <div class="mb-1">
+                <label for="mainContactLastName" class="block text-sm font-medium text-gray-700">Last Name:</label>
+                <input type="text" id="mainContactLastName" name="mainContactLastName"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="Smith" required>
+            </div>
+            <div class="mb-1">
+                <label for="mainContactEmail" class="block text-sm font-medium text-gray-700">Email:</label>
+                <input type="email" id="mainContactEmail" name="mainContactEmail"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="JackS@Email.com" required>
+            </div>
+            <div class="mb-1">
+                <label for="mainContactPhoneNumber" class="block text-sm font-medium text-gray-700">Phone Number:</label>
+                <input type="text" id="mainContactPhoneNumber" name="mainContactPhoneNumber"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="09 321 5432" required>
+            </div>
+            <div class="mb-1">
+                <label for="mainContactMobileNumber" class="block text-sm font-medium text-gray-700">Mobile Number:</label>
+                <input type="text" id="mainContactMobileNumber" name="mainContactMobileNumber"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="027 456 7890" required>
+            </div>
+            <div class="mb-1">
+                <label for="mainContactUsername" class="block text-sm font-medium text-gray-700">Username:</label>
+                <input type="text" id="mainContactUsername" name="mainContactUsername"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="Admin123" required>
+            </div>
+            <div class="mb-1">
+                <label for="mainContactPassword" class="block text-sm font-medium text-gray-700">Password:</label>
+                <input type="password" id="mainContactPassword" name="mainContactPassword"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="Pw1231231!" required>
+            </div>
+        </div>
+
+        <!-- Number of Employees -->
+        <h5 class="text-xl dark:text-white text-center p-3">Employee Information</h5>
+        <div class="mb-4 m-3" >
+            <label for="numberOfEmployees" class="block text-sm font-medium text-gray-700">Number of Employees:</label>
+            <input style="width:100px" type="number" id="numberOfEmployees" name="numberOfEmployees" min="1" value="1" max="9" class="mt-1 p-2 w-full border border-gray-300 rounded-md" value="John" required>
+            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400"><i>Number of employees is not including the main contact</i> </p>
+
+        </div>
+
+        <!-- Employee Fields -->
+        <div id="employees-container" class="border p-3 grid gap-6 mb-6 md:grid-cols-2" ></div>
+
+        <!-- Preview / Production selector & submit button-->
+        <h5 class="text-xl dark:text-white text-center p-3">Automation Environment</h5>
+        <div class="flex flex-wrap md:flex-nowrap items-center py-6 my-4 space-x-1">
+
+            <div class="p-3 flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                <input checked id="environmentRadio1" type="radio" value="Preview" name="Environment-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="borderedRadio1" class="w-full ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Create in Preview</label>
+            </div>
+            <div class="p-3 flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                <input  id="environmentRadio2" type="radio" value="Production" name="Environment-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label  for="borderedRadio2" class="w-full ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Create in Production</label>
+            </div>
+
+            <!-- Submit -->
+            <button id="startAutomationButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-4 rounded mx-auto" type="submit">Start Automation</button>
+
+        </div>
+
+    </form>
+
+    <section class="max-w-full mx-auto p-4 bg-white m-6">
+        <div class="py-6 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
+
+            <div class="pt-6 max-w-screen-md mx-auto">
+
+                <p class="mb-2 text-xl font-normal text-gray-700 dark:text-gray-200">"Start Automation" button will trigger the server to:</p>
+                <hr class="mb-4" ></hr>
+                <p class="mb-2 text-md text-left font-normal text-gray-500 dark:text-gray-200">1. Create a Cypress.config.js file based on the form results</p>
+                <p class="mb-2 text-md text-left font-normal text-gray-500 dark:text-gray-200">2. Create a duplicate Cypress.config.js file in the Previous runs folder (For future reference)</p>
+                <p class="mb-2 text-md text-left font-normal text-gray-500 dark:text-gray-200">3. Start the Cypress Automation</p>
+                <p class="mb-2 text-md text-left font-normal text-gray-500 dark:text-gray-200">4. A new company will be created in Preview / Production</p>
+                <p class="mb-2 text-md text-left font-normal text-gray-500 dark:text-gray-200">5. Progress will be logged on the onboarding ticket as an internal note</p>
+                <p class="mb-8 text-md text-left font-normal text-gray-500 dark:text-gray-200">6. Follow up tasks will be added as a tasklist on the onboarding ticket</p>
+
+            </div>
+        </div>
+    </section>
+
+    <h1 id="1"></h1>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const employeesContainer = document.getElementById('employees-container');
+            const numberOfEmployeesInput = document.getElementById('numberOfEmployees');
+
+            function updateEmployeeFields() {
+                // Clear existing employee fields
+                employeesContainer.innerHTML = '';
+                
+                const numberOfEmployees = parseInt(numberOfEmployeesInput.value);
+                for (let i = 1; i <= numberOfEmployees; i++) {
+                    const employeeDiv = document.createElement('div');
+                    employeeDiv.classList.add('m-3');
+                    employeeDiv.innerHTML = `
+                        <div class="m-3" style="margin:10px">
+                            <label for="employee${i}Name" class="block text-sm font-medium text-gray-700 ">Employee ${i} Display Name:</label>
+                            <input type="text" id="employee${i}Name" name="employee${i}Name" class="mt-1 p-2 border border-gray-300 rounded-md" value="John P" required>
+                        </div>
+
+                        <div class="m-3" style="margin:10px">
+                            <label for="employee${i}LoginName" class="block text-sm font-medium text-gray-700 ">Employee ${i} Login Name:</label>
+                            <input type="text" id="employee${i}LoginName" name="employee${i}LoginName" class="mt-1 p-2 border border-gray-300 rounded-md" value="J1 i dont have an email" required>
+                        </div>
+
+                        <div class="m-3" style="margin:10px">
+                            <label for="employee${i}Email" class="block text-sm font-medium text-gray-700 ">Employee ${i} Email:</label>
+                            <input type="email" id="employee${i}Email" name="employee${i}Email" class="mt-1 p-2 border border-gray-300 rounded-md" value="JohnP@Email.com" required>
+                        </div>
+                        <div class="m-3" style="margin:10px">
+                            <label for="employee${i}Department" class="block text-sm font-medium text-gray-700 ">Employee ${i} Department:</label>
+                            <input type="text" id="employee${i}Department" name="employee${i}Department" class="mt-1 p-2 border border-gray-300 rounded-md" value="Johns Department" required>
+                        </div>
+                        <div class="m-3" style="margin:10px">
+                            <label for="employee${i}IsManager" class="block text-sm font-medium text-gray-700 ">Employee ${i} Is Manager:</label>
+                            <input type="checkbox" id="employee${i}IsManager" name="employee${i}IsManager">
+                        </div>
+                    `;
+                    employeesContainer.appendChild(employeeDiv);
+                }
+            }
+
+            // Initialize employee fields based on the initial number
+            updateEmployeeFields();
+
+            // Update employee fields when the number of employees changes
+            numberOfEmployeesInput.addEventListener('input', updateEmployeeFields);
+        });
+
+        document.querySelector("form").addEventListener("submit", (e) => {
+            e.preventDefault(); // Prevent the browser's default download behavior
+
+            // Change Submit button appearance 
+            document.getElementById('startAutomationButton').innerHTML = "Running Automation"
+            document.getElementById('startAutomationButton').style.backgroundColor = "red"
+            document.getElementById('startAutomationButton').style.fontSize = "13px"
+            document.getElementById('startAutomationButton').disabled = true
+
+
+            const myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            // Collect form data here
+            const formData = new FormData(e.target);
+
+            // Send form data to the server
+            fetch("http://localhost:3000/download", {
+                method: "POST",
+                headers: myHeaders,
+                body: JSON.stringify({
+                    "TicketID": e.target.TicketID.value,
+                    "Environment" : e.target.environmentRadio1.checked?"Preview":"Production",
+
+                    "companyName": e.target.companyName.value,
+                    "companyAddress": e.target.companyAddress.value, 
+                    "mainContactFirstName": e.target.mainContactFirstName.value,
+                    "mainContactLastName": e.target.mainContactLastName.value,
+                    "mainContactEmail": e.target.mainContactEmail.value,
+                    "mainContactPhoneNumber": e.target.mainContactPhoneNumber.value,
+                    "mainContactMobileNumber": e.target.mainContactMobileNumber.value,
+                    "mainContactUsername": e.target.mainContactUsername.value,
+                    "mainContactPassword": e.target.mainContactPassword.value,
+                    "isMTA": e.target.isMTA.checked,
+                    "numberOfEmployees": e.target.numberOfEmployees.value,
+
+                    "employee1Name": e.target.numberOfEmployees.value > 0 ?  e.target.employee1Name.value : null,
+                    "employee1LoginName": e.target.numberOfEmployees.value > 0 ?  e.target.employee1LoginName.value : null,
+                    "employee1Email": e.target.numberOfEmployees.value > 0 ?  e.target.employee1Email.value : null,
+                    "employee1Department": e.target.numberOfEmployees.value > 0 ?  e.target.employee1Department.value : null,
+                    "employee1IsManager": e.target.numberOfEmployees.value > 0 ?  e.target.employee1IsManager.checked : null,
+
+                    "employee2Name": e.target.numberOfEmployees.value > 1 ?  e.target.employee2Name.value : null,
+                    "employee2LoginName": e.target.numberOfEmployees.value > 1 ?  e.target.employee2LoginName.value : null,
+                    "employee2Email": e.target.numberOfEmployees.value > 1 ?  e.target.employee2Email.value : null,
+                    "employee2Department": e.target.numberOfEmployees.value > 1 ?  e.target.employee2Department.value : null,
+                    "employee2IsManager": e.target.numberOfEmployees.value > 1 ?  e.target.employee2IsManager.checked : null,
+
+                    "employee3Name": e.target.numberOfEmployees.value > 2 ? e.target.employee3Name.value : null,
+                    "employee3LoginName": e.target.numberOfEmployees.value > 2 ? e.target.employee3LoginName.value : null,
+                    "employee3Email": e.target.numberOfEmployees.value > 2 ? e.target.employee3Email.value : null,
+                    "employee3Department": e.target.numberOfEmployees.value > 2 ? e.target.employee3Department.value : null,
+                    "employee3IsManager": e.target.numberOfEmployees.value > 2 ? e.target.employee3IsManager.checked : null,
+
+                    "employee4Name": e.target.numberOfEmployees.value > 3 ?  e.target.employee4Name.value : null,
+                    "employee4LoginName": e.target.numberOfEmployees.value > 3 ?  e.target.employee4LoginName.value : null,
+                    "employee4Email": e.target.numberOfEmployees.value > 3 ?  e.target.employee4Email.value : null,
+                    "employee4Department": e.target.numberOfEmployees.value > 3 ?  e.target.employee4Department.value : null,
+                    "employee4IsManager": e.target.numberOfEmployees.value > 3 ?  e.target.employee4IsManager.checked : null,
+
+                    "employee5Name": e.target.numberOfEmployees.value > 4 ?  e.target.employee5Name.value : null,
+                    "employee5LoginName": e.target.numberOfEmployees.value > 4 ?  e.target.employee5LoginName.value : null,
+                    "employee5Email": e.target.numberOfEmployees.value > 4 ?  e.target.employee5Email.value : null,
+                    "employee5Department": e.target.numberOfEmployees.value > 4 ?  e.target.employee5Department.value : null,
+                    "employee5IsManager": e.target.numberOfEmployees.value > 4 ?  e.target.employee5IsManager.checked : null,
+
+                    "employee6Name": e.target.numberOfEmployees.value > 5 ? e.target.employee6Name.value : null,
+                    "employee6LoginName": e.target.numberOfEmployees.value > 5 ? e.target.employee6LoginName.value : null,
+                    "employee6Email": e.target.numberOfEmployees.value > 5 ? e.target.employee6Email.value : null,
+                    "employee6Department": e.target.numberOfEmployees.value > 5 ? e.target.employee6Department.value : null,
+                    "employee6IsManager": e.target.numberOfEmployees.value > 5 ? e.target.employee6IsManager.checked : null,
+
+                    "employee7Name": e.target.numberOfEmployees.value > 6 ?  e.target.employee7Name.value : null,
+                    "employee7LoginName": e.target.numberOfEmployees.value > 6 ?  e.target.employee7LoginName.value : null,
+                    "employee7Email": e.target.numberOfEmployees.value > 6 ?  e.target.employee7Email.value : null,
+                    "employee7Department": e.target.numberOfEmployees.value > 6 ?  e.target.employee7Department.value : null,
+                    "employee7IsManager": e.target.numberOfEmployees.value > 6 ?  e.target.employee7IsManager.checked : null,
+
+                    "employee8Name": e.target.numberOfEmployees.value > 7 ?  e.target.employee8Name.value : null,
+                    "employee8LoginName": e.target.numberOfEmployees.value > 7 ?  e.target.employee8LoginName.value : null,
+                    "employee8Email": e.target.numberOfEmployees.value > 7 ?  e.target.employee8Email.value : null,
+                    "employee8Department": e.target.numberOfEmployees.value > 7 ?  e.target.employee8Department.value : null,
+                    "employee8IsManager": e.target.numberOfEmployees.value > 7 ?  e.target.employee8IsManager.checked : null,
+
+                    "employee9Name": e.target.numberOfEmployees.value > 8 ? e.target.employee9Name.value : null,
+                    "employee9LoginName": e.target.numberOfEmployees.value > 8 ? e.target.employee9LoginName.value : null,
+                    "employee9Email": e.target.numberOfEmployees.value > 8 ? e.target.employee9Email.value : null,
+                    "employee9Department": e.target.numberOfEmployees.value > 8 ? e.target.employee9Department.value : null,
+                    "employee9IsManager": e.target.numberOfEmployees.value > 8 ? e.target.employee9IsManager.checked : null,
+
+                }),
+            })
+            .catch(err => console.error("Download failed", err));
+        });
+
+
+
+    </script>
+</body>
+
+</html>
