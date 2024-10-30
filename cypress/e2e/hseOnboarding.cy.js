@@ -539,30 +539,14 @@ describe('Create new HSE company, induction process, users etc', () => {
 )
 
 
-  it('Final task - Internal note remaining tasks on onboarding ticket', () => {
+  it.only('Tasklist added for remaining tasks on onboarding ticket', () => {
     // Do with webhook to Power Automate. Flow is here -> `https://make.powerautomate.com/environments/2e21e621-fcf3-eae1-a4d1-9e02b3152fc8/flows/96d7de0a-c2fb-4a1b-940e-e541d79058b4/runs/08584732557519775569424720085CU26`
-    
-    if(Cypress.env(`IS_MTA`)){
-      cy.ticketInternalNote(`
-      #### Automation complete. You need to complete the remaining tasks:
+    cy.addTasklistToTicket()
 
-      1. Upload Induction Documents (For Contractor, Visitor, Worker)
-      2. Upload Notification Docs (2 x Training & 1 SOP)
-      3. HSE > Manage Company > Settings > Add Company Logo
-      4. HSE > Checklists > Send MTA Admin Checklists
-      5. Check Customer Payment (Stripe or invoices from accounts)
-      6. Send Welcome Email	
-      `)
-    }else{
-      cy.ticketInternalNote(`
-      #### Automation complete. You need to complete the remaining tasks:
+    cy.ticketInternalNote(`
+    Automation complete. A tasklist has been added for remaining tasks
+    `)
 
-      1. Upload induction documents (For Contractor, Visitor, Worker)
-      2. HSE > Manage Company > Settings > Add Company Logo
-      3. Check Customer Payment (Stripe or invoices from accounts)
-      4. Send Welcome Email	
-      `)
-    }
   }
 )
 

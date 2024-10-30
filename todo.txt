@@ -12,6 +12,6 @@
 5. Make Settings > Site ✅
 6. MTA notifications (Conditional) ✅
 7. Add User Login Name ✅
-8. Add Admin Checklists??
+8. Add tasklist to ticket ✅
 9. Format form / UI Better
 10. Loom 

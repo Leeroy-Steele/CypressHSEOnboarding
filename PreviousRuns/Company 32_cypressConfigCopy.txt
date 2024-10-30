@@ -39,7 +39,7 @@ module.exports = defineConfig({
       MAIN_CONTACT_PASSWORD: "Pw1231231!",
 
       // Is MTA
-      IS_MTA: false,
+      IS_MTA: true,
       TRAINING_DUE_DATE: '27-11-2024',
 
       // Number of employees
