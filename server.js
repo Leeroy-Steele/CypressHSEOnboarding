@@ -255,7 +255,7 @@ module.exports = defineConfig({
   // Define the path where the cypress.config.js file will be saved
   const filePath = path.join(__dirname, 'cypress.config.js');
   const file2Path = path.join(__dirname, `/PreviousRuns/${companyName}_cypressConfigCopy.txt`);
-console.log(file2Path)
+
   // Write the content to the file
   fs.writeFile(filePath, configContent, (err) => {
     if (err) {
@@ -268,9 +268,9 @@ console.log(file2Path)
       }})
 
   });
-  console.log("Created Cypress.config.js file")
+  console.log("Created Cypress.config.js file & duplicate for the Previous runs folder")
 
-  console.log("Starting Cyress.io automation")
+  console.log("Starting Cyress.io automation in another window. You can close this when cypress is finished all tasks")
 
   // run cypressio
   exec('npm run HSEOnBoard', (error, stdout, stderr) => {

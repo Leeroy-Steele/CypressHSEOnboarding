@@ -14,26 +14,44 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>      
     <section class="max-w-full mx-auto p-4 bg-white m-6">
         <div class="py-6 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
-
-            <h1 class="mb-6 text-3xl font-bold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Create Company in HSE</h1>
-
+            <h1 class="mb-6 text-3xl font-bold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Create Company in HSE Automation</h1>
         </div>
     </section>
 
     <form class="w-full max-w-xl mx-auto p-4 bg-white mx-6" method="POST">
-
-
-        <!-- Onboarding ticket info -->
-        <div class="mb-6" >
-            <label for="TicketID" class="block text-sm font-medium text-gray-700">Onboarding Ticket ID:</label>
-            <input style="width:100px" type="text" id="TicketID" name="TicketID" class="mt-1 p-2 w-full border border-gray-300 rounded-md" value=""  placeholder="123456"required>
-            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400"><i>The onboarding ticket number is used for logging progress on the card (Internal Notes)</i> </p>
+        
+        <h5 class="text-xl dark:text-white text-center p-3">Onboarding Ticket</h5>
+            <!-- New input field from https://flowbite.com/docs/forms/search-input/ -->
+        <div class="flex max-w-sm mx-auto">
+            <button id="env-dropdown-button" data-dropdown-toggle="dropdown" style="width: 120px;" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" type="button">
+                Production 
+            <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/></svg></button>
+            
+            <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="env-dropdown-button">
+                    <li>
+                        <button onclick="chooseEnv('Production')" type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Production</button>
+                    </li>
+                    <li>
+                        <button onclick="chooseEnv('Preview')" type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Preview</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="relative w-full">
+                <input type="search" id="ticketNumberInput" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="e.g 123456" required />
+                <button id="fetchTicketButton" onclick="fetchTicket()" type="button" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-e-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Fetch Ticket
+                </button>
+            </div>
         </div>
+        <p class="m-4 text-xs text-gray-500 dark:text-gray-400  pb-6"><i>The onboarding ticket number is used for logging progress on the card (Internal Notes)</i> </p>
+
+
 
 
         <!-- Company Info -->
         <h5 class="text-xl dark:text-white text-center p-3">Company Information</h5>
-        <div class="border p-3" >
+        <div class="border p-3 mb-6" >
 
             <div class="relative my-3">
                 <input value="" type="text" id="companyName" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
@@ -55,7 +73,6 @@
         <!-- Main Contact Info -->
         <h5 class="text-xl dark:text-white text-center p-3">Main Contact Information</h5>
         <div class="border p-3 grid gap-6 mb-6 md:grid-cols-2" >
-
 
 
             <div class="relative my-1">
@@ -84,9 +101,10 @@
                 <label for="mainContactMobileNumber" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Mobile Number:</label>
             </div>
 
+
             <div class="relative my-1">
                 <input type="text" id="mainContactUsername" name="mainContactUsername" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" "  value="" required>
-                <label for="mainContactUsername" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Username:</label>
+                <label for="mainContactUsername" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Username: (Ends with Admin)</label>
             </div>
 
             <div class="relative my-1">
@@ -162,6 +180,8 @@
                     const employeeDiv = document.createElement('div');
                     employeeDiv.classList.add('m-3');
                     employeeDiv.innerHTML = `
+                        <p class="m-4 text-center text-xs text-gray-500 dark:text-gray-400  pb-4"><i>Employee ${i}</i> </p>
+
                         <div class="relative my-1" style="margin:10px">
                             <input placeholder=" " type="text" id="employee${i}Name" name="employee${i}Name" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value="" required>
                             <label for="employee${i}Name" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Employee ${i} Display Name:</label>
@@ -180,11 +200,11 @@
                             <input placeholder=" " type="text" id="employee${i}Department" name="employee${i}Department" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value="" required>
                             <label for="employee${i}Department" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Employee ${i} Department:</label>
                         </div>
-                        <div class="flex items-center mb-4">
+                        <div class="flex items-center m-4">
                             <input id="employee${i}IsManager" name="employee${i}IsManager" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                             <label for="employee${i}IsManager" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Is Manager?</label>
                         </div>
-
+                        <hr>
 
                     `;
                     employeesContainer.appendChild(employeeDiv);
@@ -218,7 +238,7 @@
                 method: "POST",
                 headers: myHeaders,
                 body: JSON.stringify({
-                    "TicketID": e.target.TicketID.value,
+                    "TicketID": e.target.ticketNumberInput.value,
                     "Environment" : e.target.environmentRadio1.checked?"Preview":"Production",
 
                     "companyName": e.target.companyName.value,
@@ -292,7 +312,56 @@
             .catch(err => console.error("Download failed", err));
         });
 
+        let fetchTicket = ()=>{
+            // Display on the fetch button that it is fetching
+            document.getElementById('fetchTicketButton').disabled = true
+            document.getElementById('fetchTicketButton').innerHTML = "Running"
+            document.getElementById('fetchTicketButton').style.backgroundColor = "orange"
+            document.getElementById('fetchTicketButton').style.padding = "10px"
 
+            const myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            const raw = JSON.stringify({
+            "Name": "",
+            "Email": "",
+            "TicketID": Number(document.getElementById('ticketNumberInput').value),
+            "Task": "Return ticket details",
+            "Note": "",
+            "Env": document.getElementById('env-dropdown-button').innerHTML==="Preview"?"http://hseconnect.previewourapp.com/Login":"http://hseconnect.com/Login"
+            });
+
+            const requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow"
+            };
+
+            fetch("https://prod-19.australiasoutheast.logic.azure.com:443/workflows/ece9c78292324b17bf0c8f68f010cb6b/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=WLYxCqqlzpQMLo4-YVwIdiApsi5FIqCZvMrFLNA4A4U", requestOptions)
+            .then((response) => response.json())
+            .then((result) => {
+                
+            console.log(result)
+            // Populate ticket details on form 
+            document.getElementById('companyName').value = result.CompanyName
+            document.getElementById('isMTA').checked = result.CustomerType==="MTA"? true:false; 
+
+            // Reset the fetch button
+            document.getElementById('fetchTicketButton').disabled = false
+            document.getElementById('fetchTicketButton').innerHTML = "Fetch Ticket"
+            document.getElementById('fetchTicketButton').style.backgroundColor = null
+            document.getElementById('fetchTicketButton').style.padding = null
+            })
+            .catch((error) => console.error(error));
+
+
+        }
+
+        let chooseEnv = (env)=>{
+            document.getElementById('env-dropdown-button').innerHTML=env
+            document.getElementById('dropdown').classList.add("hidden")
+        }
 
     </script>
 </body>

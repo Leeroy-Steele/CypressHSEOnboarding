@@ -9,7 +9,8 @@ Cypress.Commands.add('ticketInternalNote', (note) => {
         "Email": "",
         "TicketID": Number(Cypress.env('TicketID')),
         "Task": "Internal Note",
-        "Note": `${note}`
+        "Note": `${note}`,
+        "Env": Cypress.env('HSE_URL'),
       });
       
       const requestOptions = {
@@ -34,7 +35,8 @@ Cypress.Commands.add('ticketInternalNote', (note) => {
         "Email": email,
         "TicketID": Number(Cypress.env('TicketID')),
         "Task": "Create Contact",
-        "Note": ""
+        "Note": "",
+        "Env": Cypress.env('HSE_URL'),
       });
       
       const requestOptions = {
@@ -129,7 +131,8 @@ Cypress.Commands.add('addTasklistToTicket', () => {
       "Email": "",
       "TicketID": Number(Cypress.env('TicketID')),
       "Task": Cypress.env(`IS_MTA`)?'Add MTA Tasklist': 'Add Tasklist',
-      "Note": ""
+      "Note": "",
+      "Env": Cypress.env('HSE_URL'),
     });
     
     const requestOptions = {

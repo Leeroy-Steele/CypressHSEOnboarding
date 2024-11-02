@@ -13,5 +13,6 @@
 6. MTA notifications (Conditional) ✅
 7. Add User Login Name ✅
 8. Add tasklist to ticket ✅
-9. Format form / UI Better
-10. Loom 
+9. Format form / UI Better ✅
+10. Loom ✅ 
+11. Change ticket to `in progress - don't email` status

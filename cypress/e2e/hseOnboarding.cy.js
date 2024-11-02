@@ -1,9 +1,9 @@
 // const cypress = require("cypress")
 
-let shortWait = 1000
-let mediumWait = 2000
-let LongWait = 3000
-let extralongWait = 4000
+let shortWait = 1500
+let mediumWait = 2500
+let LongWait = 3500
+let extralongWait = 4500
 
 let addEmployee1 = ()=>{}
 let addEmployee2 = ()=>{}
@@ -94,7 +94,7 @@ if(Cypress.env('NUMBER_OF_EMPLOYEES')>8){
 
 const CreatedNotificationsMessage =   
 `
-#### Created Notifications:
+#### Created MTA Notifications:
 
 |Type|Name|
 |--|--|
@@ -106,7 +106,7 @@ const CreatedNotificationsMessage =
 
 const CreatedCompanyInHSEMessage =   
 `
-#### (From CypressIO Automation)
+##### From CypressIO Automation:
 
 |New company created in:|Company name:|
 |--|--|
@@ -135,7 +135,7 @@ describe('Create new HSE company, induction process, users etc', () => {
       cy.get('#company_name').type(Cypress.env('COMPANY_NAME'))
 
       // Expiry Data
-      cy.get('#expiry_date').clear().type('31-12-2040')
+      cy.get('#expiry_date').clear().type('31-12-2039')
       cy.get('.date_picker > .glyphicon').click()
 
       // Check `Receive Monthly User Report`
@@ -165,12 +165,10 @@ describe('Create new HSE company, induction process, users etc', () => {
 
     cy.ticketInternalNote(CreatedCompanyInHSEMessage)
 
-
     // Manage new Company
     cy.get('.pull-right > .ng-scope').click()
     cy.location('pathname').should('eq','/HSEManager')
     cy.wait(shortWait)
-
 
     // Create Worker Induction
       // Select Induction
@@ -259,36 +257,110 @@ describe('Create new HSE company, induction process, users etc', () => {
       New induction questions created for ${Cypress.env('COMPANY_NAME')} 
     `)
 
+    // Add training notifications - MTA only
+    if(Cypress.env('IS_MTA')){
+      // Take 5 Step Back and Think - Training
+        // select `Notifications` from top menu   
+        cy.get(':nth-child(3) > .hidden-xs > div').contains('Notifications').should('exist').click()
 
-    
+        // select `+ New Training` Button
+        cy.get('h2.clearfix > .button').contains('New Training').click()
 
+        // Add Notification Title 
+        cy.wait(mediumWait)
+        cy.get('.col-sm-9 > .ng-pristine').type("Take 5 Step Back and Think")
 
+        // Select `Training` Radio
+        cy.get(':nth-child(2) > :nth-child(1) > .control > .ng-pristine').should('exist').click()
 
+        // // Select All departments button
+        // cy.get('.border-top').contains('Select All').click()
 
+        // Add Due date (4 weeks from now)
+        cy.get('.date_picker > .ng-isolate-scope').click().type(Cypress.env('TRAINING_DUE_DATE'))
+        
+        // Add Question Button
+        cy.get('.comment_button').should('exist').click()
+          // Add Question Title
+          cy.get('.col-lg-6 > .ng-pristine').type('I reviewed, understand and agree with')
+          // Add option button
+          cy.get('.option_button > .button').should('exist').click()
+          // Enter option text
+          cy.get('.form-control').type('Take 5 Step Back and Think')
+        // Save notification
+        cy.get('.pull-right > .button').should('exist').click()
 
+        // Select Back button
+        cy.wait(LongWait)
+        cy.get('h2.clearfix > .button').contains('Back').click()
 
-///////////// Shortcut to existing company
+      // Workshop - Common Hazards - Training
+        // select `+ New Training` Button
+        cy.get('h2.clearfix > .button').contains('New Training').click()
 
-    // // Login to HSE Preview
-    // cy.visit(Cypress.env('HSE_URL'))
+        // Add Notification Title
+        cy.wait(mediumWait)
+        cy.get('.col-sm-9 > .ng-pristine').type("Workshop - Common Hazards")
 
-    // // Login as super user
-    // cy.get('#login_name').type(Cypress.env('HSE_SUPER_USER_LOGIN_NAME'))
-    // cy.get('#password').type(Cypress.env('HSE_SUPER_USER_PW'))
-    // cy.get('.ng-scope.ng-dirty > .button').click()
+        // Select `Training` Radio
+        cy.get(':nth-child(2) > :nth-child(1) > .control > .ng-pristine').should('exist').click()
 
-    // // manage company
-    // cy.wait(mediumWait)
-    // cy.get('.search_box > .ng-pristine').type(Cypress.env('COMPANY_NAME'))
-    // cy.wait(mediumWait)
-    // cy.get('.standard').click()
+        // Select All departments button
+        // cy.get('.border-top').contains('Select All').click()
 
+        // Add Due date (4 weeks from now)
+        cy.get('.date_picker > .ng-isolate-scope').click().type(Cypress.env('TRAINING_DUE_DATE'))
+        
+        // Add Question Button
+        cy.get('.comment_button').should('exist').click()
+          // Add Question Title
+          cy.get('.col-lg-6 > .ng-pristine').type('I reviewed, understand and agree with')
+          // Add option button
+          cy.get('.option_button > .button').should('exist').click()
+          // Enter option text
+          cy.get('.form-control').type('Workshop - Common Hazards')
+        // Save notification
+        cy.get('.pull-right > .button').should('exist').click()
 
-///////////////
+        // Select Back button
+        cy.wait(LongWait)
+        cy.get('h2.clearfix > .button').contains('Back').click()
 
+      // SOP notification - SOP Library
+        // select `+ New Training` Button
+        cy.get('h2.clearfix > .button').contains('New Training').click()
 
+        // Add Notification Title
+        cy.wait(mediumWait)
+        cy.get('.col-sm-9 > .ng-pristine').type("SOP Library")
 
+        // Select `SOP` Radio
+        cy.get(':nth-child(4) > .control > .ng-pristine').should('exist').click()
 
+        // Select All departments button
+        // cy.get('.border-top').contains('Select All').click()
+
+        // Add Due date (4 weeks from now)
+        cy.get('.date_picker > .ng-isolate-scope').click().type(Cypress.env('TRAINING_DUE_DATE'))
+        
+        // Add Question Button
+        cy.get('.comment_button').should('exist').click()
+          // Add Question Title
+          cy.get('.col-lg-6 > .ng-pristine').type('I reviewed, understand and agree with')
+          // Add option button
+          cy.get('.option_button > .button').should('exist').click()
+          // Enter option text
+          cy.get('.form-control').type('SOP Library')
+        // Save notification
+        cy.get('.pull-right > .button').should('exist').click()
+
+        // Select Back button
+        cy.wait(LongWait)
+        cy.get('h2.clearfix > .button').contains('Back').click()
+
+        cy.ticketInternalNote(CreatedNotificationsMessage)
+
+      }
 
 
     // Add Users
@@ -323,7 +395,6 @@ describe('Create new HSE company, induction process, users etc', () => {
         // Induct HSE Manager checkbutton
         cy.get(':nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1) > .ng-pristine').click()
 
-
         // Save user
         cy.get('.pull-right > .button').should('exist').click()
         cy.wait(shortWait)
@@ -333,7 +404,6 @@ describe('Create new HSE company, induction process, users etc', () => {
         // Go Back
         cy.get('.clearfix.ng-binding > .button').should('exist').click()
 
-        
 
       //Conditionally add users. Number depends on Cypress.env('NUMBER_OF_EMPLOYEES') 
       addEmployee1()
@@ -359,114 +429,6 @@ describe('Create new HSE company, induction process, users etc', () => {
 
       // Press Save
       cy.get('h3 > .pull-right > .button').should('exist').click()
-
-    // Add training notifications - MTA only
-
-      if(Cypress.env('IS_MTA')){
-      // Take 5 Step Back and Think - Training
-        // select `Notifications` from top menu   
-        cy.get(':nth-child(3) > .hidden-xs > div').contains('Notifications').should('exist').click()
-
-        // select `+ New Training` Button
-        cy.get('h2.clearfix > .button').contains('New Training').click()
-
-        // Add Notification Title 
-        cy.wait(shortWait)
-        cy.get('.col-sm-9 > .ng-pristine').type("Take 5 Step Back and Think")
-
-        // Select `Training` Radio
-        cy.get(':nth-child(2) > :nth-child(1) > .control > .ng-pristine').should('exist').click()
-
-        // Select All departments button
-        cy.get('.border-top').contains('Select All').click()
-
-        // Add Due date (4 weeks from now)
-        cy.get('.date_picker > .ng-isolate-scope').click().type(Cypress.env('TRAINING_DUE_DATE'))
-        
-        // Add Question Button
-        cy.get('.comment_button').should('exist').click()
-          // Add Question Title
-          cy.get('.col-lg-6 > .ng-pristine').type('I reviewed, understand and agree with')
-          // Add option button
-          cy.get('.option_button > .button').should('exist').click()
-          // Enter option text
-          cy.get('.form-control').type('Take 5 Step Back and Think')
-        // Save notification
-        cy.get('.pull-right > .button').should('exist').click()
-
-        // Select Back button
-        cy.wait(LongWait)
-        cy.get('h2.clearfix > .button').contains('Back').click()
-
-      // Workshop - Common Hazards - Training
-        // select `+ New Training` Button
-        cy.get('h2.clearfix > .button').contains('New Training').click()
-
-        // Add Notification Title
-        cy.wait(shortWait)
-        cy.get('.col-sm-9 > .ng-pristine').type("Workshop - Common Hazards")
-
-        // Select `Training` Radio
-        cy.get(':nth-child(2) > :nth-child(1) > .control > .ng-pristine').should('exist').click()
-
-        // Select All departments button
-        cy.get('.border-top').contains('Select All').click()
-
-        // Add Due date (4 weeks from now)
-        cy.get('.date_picker > .ng-isolate-scope').click().type(Cypress.env('TRAINING_DUE_DATE'))
-        
-        // Add Question Button
-        cy.get('.comment_button').should('exist').click()
-          // Add Question Title
-          cy.get('.col-lg-6 > .ng-pristine').type('I reviewed, understand and agree with')
-          // Add option button
-          cy.get('.option_button > .button').should('exist').click()
-          // Enter option text
-          cy.get('.form-control').type('Workshop - Common Hazards')
-        // Save notification
-        cy.get('.pull-right > .button').should('exist').click()
-
-        // Select Back button
-        cy.wait(LongWait)
-        cy.get('h2.clearfix > .button').contains('Back').click()
-
-      // SOP notification - SOP Library
-        // select `+ New Training` Button
-        cy.get('h2.clearfix > .button').contains('New Training').click()
-
-        // Add Notification Title
-        cy.wait(shortWait)
-        cy.get('.col-sm-9 > .ng-pristine').type("SOP Library")
-
-        // Select `SOP` Radio
-        cy.get(':nth-child(4) > .control > .ng-pristine').should('exist').click()
-
-        // Select All departments button
-        cy.get('.border-top').contains('Select All').click()
-
-        // Add Due date (4 weeks from now)
-        cy.get('.date_picker > .ng-isolate-scope').click().type(Cypress.env('TRAINING_DUE_DATE'))
-        
-        // Add Question Button
-        cy.get('.comment_button').should('exist').click()
-          // Add Question Title
-          cy.get('.col-lg-6 > .ng-pristine').type('I reviewed, understand and agree with')
-          // Add option button
-          cy.get('.option_button > .button').should('exist').click()
-          // Enter option text
-          cy.get('.form-control').type('SOP Library')
-        // Save notification
-        cy.get('.pull-right > .button').should('exist').click()
-
-        // Select Back button
-        cy.wait(LongWait)
-        cy.get('h2.clearfix > .button').contains('Back').click()
-
-        cy.ticketInternalNote(CreatedNotificationsMessage)
-
-
-      }
-
 
 
   })
@@ -497,6 +459,7 @@ describe('Create new HSE company, induction process, users etc', () => {
     cy.wait(mediumWait)
 
     // Copy Link
+    cy.wait(shortWait)
     cy.get('#link').invoke('val').as('extractedText'); 
     cy.get('@extractedText').then((text) => {
       cy.log(`Extracted text is: ${text}`);
