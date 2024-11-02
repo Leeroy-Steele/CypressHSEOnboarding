@@ -135,7 +135,7 @@ describe('Create new HSE company, induction process, users etc', () => {
       cy.get('#company_name').type(Cypress.env('COMPANY_NAME'))
 
       // Expiry Data
-      cy.get('#expiry_date').clear().type('31-12-2039')
+      cy.get('#expiry_date').clear().clear().type('31-12-2040')
       cy.get('.date_picker > .glyphicon').click()
 
       // Check `Receive Monthly User Report`

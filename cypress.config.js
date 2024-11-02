@@ -11,78 +11,78 @@ module.exports = defineConfig({
   env: {
     //// CONSTANTS ////
       //  HSE URL
-      HSE_URL: 'https://www.hseconnect.co.nz/login',
+      HSE_URL: 'http://hseconnect.previewourapp.com/Login',
 
       //  user logins
-      HSE_SUPER_USER_LOGIN_NAME: 'hse admin lancom',
+      HSE_SUPER_USER_LOGIN_NAME: 'hse admin kyle',
 
       //  user passwords
-      HSE_SUPER_USER_PW: 'ssH0P+la]{T3-8iU',
+      HSE_SUPER_USER_PW: '123456',
 
     //// VARIABLES ////
 
       // Onboarding Ticket ID
-      TicketID: "2828965",
+      TicketID: "2085",
 
 
       // Company info
-      COMPANY_NAME: "Bridgestone Helensville",
-      COMPANY_ADDRESS: "32 Mill Road, Helensville 0800",
+      COMPANY_NAME: "Cust 12345567",
+      COMPANY_ADDRESS: "123 street, auckland",
 
       // Main contact
-      MAIN_CONTACT_FIRST_NAME: "Sharm",
-      MAIN_CONTACT_LAST_NAME: "Perera",
-      MAIN_CONTACT_EMAIL: "Bridgestone.helensville@gmail.com",
-      MAIN_CONTACT_PHONE_NUMBER: "09 4207385",
-      MAIN_CONTACT_MOBILE_NUMBER: "0211796423",
-      MAIN_CONTACT_USERNAME: "BH Admin",
+      MAIN_CONTACT_FIRST_NAME: "asd",
+      MAIN_CONTACT_LAST_NAME: "asd",
+      MAIN_CONTACT_EMAIL: "as544d@asd.com",
+      MAIN_CONTACT_PHONE_NUMBER: "09435345 ",
+      MAIN_CONTACT_MOBILE_NUMBER: "4564476785678",
+      MAIN_CONTACT_USERNAME: "Cust 12345345 Admin",
       MAIN_CONTACT_PASSWORD: "Pw1231231!",
 
       // Is MTA
       IS_MTA: true,
-      TRAINING_DUE_DATE: '29-11-2024',
+      TRAINING_DUE_DATE: '31-12-2024',
 
       // Number of employees
-      NUMBER_OF_EMPLOYEES: 4,
+      NUMBER_OF_EMPLOYEES: 1,
 
       // Employee 1 info
-      Employee1_NAME: "Sharm Perera",
-      Employee1_LOGIN_NAME: "Sham9182@hotmail.com",
-      Employee1_EMAIL: "Sham9182@hotmail.com",
-      Employee1_DEPARTMENT: "Office",
+      Employee1_NAME: "Asd",
+      Employee1_LOGIN_NAME: "sassda@asd.com",
+      Employee1_EMAIL: "sadada@asd.com",
+      Employee1_DEPARTMENT: "D1",
       Employee1_DEPARTMENT_ALREADY_EXISTS: "false",
-      Employee1_IS_MANAGER: true,
+      Employee1_IS_MANAGER: false,
 
       // Employee 2 info
-      Employee2_NAME: "Vishal Sala",
-      Employee2_LOGIN_NAME: "BH Vishal Sala", 
-      Employee2_EMAIL: "Bridgestone.helensville@gmail.com",
-      Employee2_DEPARTMENT: "Workshop",
+      Employee2_NAME: "null",
+      Employee2_LOGIN_NAME: "null", 
+      Employee2_EMAIL: "null",
+      Employee2_DEPARTMENT: "null",
       Employee2_DEPARTMENT_ALREADY_EXISTS: "false",  
-      Employee2_IS_MANAGER: true,
+      Employee2_IS_MANAGER: null,
 
       // Employee 3 info
-      Employee3_NAME: "Parmesh Sharma",
-      Employee3_LOGIN_NAME: "BH Parmesh Sharma",
-      Employee3_EMAIL: "Bridgestone.helensville@gmail.com",
-      Employee3_DEPARTMENT: "Workshop",
+      Employee3_NAME: "null",
+      Employee3_LOGIN_NAME: "null",
+      Employee3_EMAIL: "null",
+      Employee3_DEPARTMENT: "null",
       Employee3_DEPARTMENT_ALREADY_EXISTS: "true",  
-      Employee3_IS_MANAGER: false,
+      Employee3_IS_MANAGER: null,
 
       // Employee 4 info
-      Employee4_NAME: "Hemantha Chandralal",
-      Employee4_LOGIN_NAME: "BH Hemantha Chandralal",
-      Employee4_EMAIL: "Bridgestone.helensville@gmail.com",
-      Employee4_DEPARTMENT: "Workshop",
+      Employee4_NAME: "null",
+      Employee4_LOGIN_NAME: "null",
+      Employee4_EMAIL: "null",
+      Employee4_DEPARTMENT: "null",
       Employee4_DEPARTMENT_ALREADY_EXISTS: "true",  
-      Employee4_IS_MANAGER: false,
+      Employee4_IS_MANAGER: null,
 
       // Employee 5 info
       Employee5_NAME: "null",
       Employee5_LOGIN_NAME: "null",
       Employee5_EMAIL: "null",
       Employee5_DEPARTMENT: "null",
-      Employee5_DEPARTMENT_ALREADY_EXISTS: "false",  
+      Employee5_DEPARTMENT_ALREADY_EXISTS: "true",  
       Employee5_IS_MANAGER: null,
 
       // Employee 6 info
