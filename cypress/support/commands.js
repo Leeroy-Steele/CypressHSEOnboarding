@@ -62,7 +62,7 @@ Cypress.Commands.add('ticketInternalNote', (note) => {
     cy.get(':nth-child(1) > .textbox').type(name)
     cy.wait(1000)
     // Add Email
-    cy.get(':nth-child(2) > .input_content > .clearfix > :nth-child(1) > .ng-pristine').type(email)
+    cy.get(':nth-child(2) > .input_content > .clearfix > :nth-child(1) > .ng-pristine').type(Cypress.env(`IS_MTA`)?'+++Email_Blocked+++' + email : email)
     cy.wait(1000)
     
     // IF IsManager === true. Assign HSE manager role
@@ -79,7 +79,9 @@ Cypress.Commands.add('ticketInternalNote', (note) => {
     cy.get('.pull-right > .button').should('exist').click()
     cy.wait(1000)
     cy.ticketInternalNote(`
-      Created user ${name} in HSE`)
+      Created new user: ${name} in ${Cypress.env('COMPANY_NAME')}
+      ${Cypress.env('IS_MTA')?"+++Email_Blocked+++ was added to the email address to prevent notification emails":null}
+      `)
     // Go Back
     cy.get('.clearfix.ng-binding > .button').should('exist').click()
 
@@ -96,7 +98,7 @@ Cypress.Commands.add('createHseUser_NewDepartment', (name, loginName, email, Dep
     cy.get(':nth-child(1) > .textbox').type(name)
     cy.wait(1000)
     // Add Email
-    cy.get(':nth-child(2) > .input_content > .clearfix > :nth-child(1) > .ng-pristine').type(email)
+    cy.get(':nth-child(2) > .input_content > .clearfix > :nth-child(1) > .ng-pristine').type(Cypress.env(`IS_MTA`)?'+++Email_Blocked+++' + email : email)
     cy.wait(1000)
 
     // IF IsManager === true. Assign HSE manager role
@@ -115,7 +117,9 @@ Cypress.Commands.add('createHseUser_NewDepartment', (name, loginName, email, Dep
     cy.get('.pull-right > .button').should('exist').click()
     cy.wait(1000)
     cy.ticketInternalNote(`
-      Created user ${name} in HSE`)
+      Created new user: ${name} in ${Cypress.env('COMPANY_NAME')}
+      ${Cypress.env('IS_MTA')?"+++Email_Blocked+++ was added to the email address to prevent notification emails":null}
+      `)
     // Go Back
     cy.get('.clearfix.ng-binding > .button').should('exist').click()
 

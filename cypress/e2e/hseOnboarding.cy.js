@@ -273,8 +273,8 @@ describe('Create new HSE company, induction process, users etc', () => {
         // Select `Training` Radio
         cy.get(':nth-child(2) > :nth-child(1) > .control > .ng-pristine').should('exist').click()
 
-        // // Select All departments button
-        // cy.get('.border-top').contains('Select All').click()
+        // Select All departments button
+        cy.get('.border-top').contains('Select All').click()
 
         // Add Due date (4 weeks from now)
         cy.get('.date_picker > .ng-isolate-scope').click().type(Cypress.env('TRAINING_DUE_DATE'))
@@ -306,7 +306,7 @@ describe('Create new HSE company, induction process, users etc', () => {
         cy.get(':nth-child(2) > :nth-child(1) > .control > .ng-pristine').should('exist').click()
 
         // Select All departments button
-        // cy.get('.border-top').contains('Select All').click()
+        cy.get('.border-top').contains('Select All').click()
 
         // Add Due date (4 weeks from now)
         cy.get('.date_picker > .ng-isolate-scope').click().type(Cypress.env('TRAINING_DUE_DATE'))
@@ -338,7 +338,7 @@ describe('Create new HSE company, induction process, users etc', () => {
         cy.get(':nth-child(4) > .control > .ng-pristine').should('exist').click()
 
         // Select All departments button
-        // cy.get('.border-top').contains('Select All').click()
+        cy.get('.border-top').contains('Select All').click()
 
         // Add Due date (4 weeks from now)
         cy.get('.date_picker > .ng-isolate-scope').click().type(Cypress.env('TRAINING_DUE_DATE'))

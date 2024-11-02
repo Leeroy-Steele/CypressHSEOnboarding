@@ -15,4 +15,6 @@
 8. Add tasklist to ticket ✅
 9. Format form / UI Better ✅
 10. Loom ✅ 
-11. Change ticket to `in progress - don't email` status
+11. Change ticket to `in progress - don't email` status ✅ 
+12. fix company date issue
+13. Fix users getting emailed from notifications issue
