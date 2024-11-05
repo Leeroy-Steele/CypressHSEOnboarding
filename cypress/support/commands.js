@@ -117,10 +117,10 @@ Cypress.Commands.add('createHseUser_NewDepartment', (name, loginName, email, Dep
     cy.get('.pull-right > .button').should('exist').click()
     cy.wait(1000)
     cy.ticketInternalNote(`
-      Created new user: ${name} in ${Cypress.env('COMPANY_NAME')}
+  Created new user: ${name} in ${Cypress.env('COMPANY_NAME')}
 
-      ${Cypress.env('IS_MTA')?">As this is a MTA customer '+++Email_Blocked+++' was added to the email address to prevent a notification email":null}
-      `)
+  ${Cypress.env('IS_MTA')?"As this is a MTA customer '+++Email_Blocked+++' was added to the email address to prevent a notification email":null}
+  `)
     // Go Back
     cy.get('.clearfix.ng-binding > .button').should('exist').click()
 
