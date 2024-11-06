@@ -114,7 +114,7 @@ const CreatedCompanyInHSEMessage =
   
 `
 
-describe('Create new HSE company, induction process, users etc', () => {
+describe('Run HSE Onboarding Automation', () => {
 
   it('Create new company in HSE Connect', () => {
     // Login to HSE Preview
