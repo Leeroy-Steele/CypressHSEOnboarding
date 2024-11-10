@@ -3,4 +3,5 @@
 /screenshots
 /notUsedAndDontSyncToGitHub
 /cypress.config.js
+/cypress/screenshots
 .env
