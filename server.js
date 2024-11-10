@@ -273,7 +273,7 @@ module.exports = defineConfig({
   console.log("Starting Cyress.io automation in another window. You can close this when cypress is finished all tasks")
 
   // run cypressio
-  exec('npm run HSEOnBoard', (error, stdout, stderr) => {
+  exec('sudo npm run HSEOnBoard', (error, stdout, stderr) => {
     if (error) {
       console.error(`Error: ${error.message}`);
       return;
