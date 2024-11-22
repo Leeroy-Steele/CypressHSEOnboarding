@@ -122,7 +122,7 @@ describe('Run HSE Onboarding Automation', () => {
 
     // Login as super user
     cy.get('#login_name').type(Cypress.env('HSE_SUPER_USER_LOGIN_NAME'))
-    cy.get('#password').type(Cypress.env('HSE_SUPER_USER_PW'))
+    cy.get('#password').type(Cypress.env('HSE_SUPER_USER_PW'), {log: false})
     cy.get('.ng-scope.ng-dirty > .button').click()
 
     // Add new Company
@@ -450,7 +450,6 @@ describe('Run HSE Onboarding Automation', () => {
   let pwLink 
   it('Create secure HSE Manager password link with https://1ty.me/', () => {
     
-    
     cy.visit('https://1ty.me/')
     cy.get('#note_box_main').type(Cypress.env('MAIN_CONTACT_PASSWORD'))
     
@@ -512,6 +511,12 @@ describe('Run HSE Onboarding Automation', () => {
 
   }
 )
+
+  // clean up tasks after automation has completed all tasks
+  it('Final clean up task, remove config file', () => {
+    cy.removeConfigFile()
+
+  })
 
 
 })
