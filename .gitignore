@@ -4,3 +4,4 @@
 /cypress.config.js
 /cypress/screenshots
 .env
+/PreviousRuns

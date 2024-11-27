@@ -374,7 +374,7 @@ describe('Run HSE Onboarding Automation', () => {
         cy.wait(LongWait)
 
         // Add login name
-        cy.get(':nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(2) > [placeholder="Login Name"][type="text"]').type(Cypress.env('MAIN_CONTACT_EMAIL'))
+        cy.get(':nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(2) > [placeholder="Login Name"][type="text"]').type(Cypress.env('MAIN_CONTACT_USERNAME'))
         cy.wait(shortWait)
 
         // Add display name

@@ -94,6 +94,103 @@ app.post('/download', (req, res) => {
     employee9Email,
     employee9Department,
     employee9IsManager,
+
+    employee10Name,
+    employee10LoginName,
+    employee10Email,
+    employee10Department,
+    employee10IsManager,
+
+    employee11Name,
+    employee11LoginName,
+    employee11Email,
+    employee11Department,
+    employee11IsManager,
+
+    employee12Name,
+    employee12LoginName,
+    employee12Email,
+    employee12Department,
+    employee12IsManager,
+
+    employee13Name,
+    employee13LoginName,
+    employee13Email,
+    employee13Department,
+    employee13IsManager,
+
+    employee14Name,
+    employee14LoginName,
+    employee14Email,
+    employee14Department,
+    employee14IsManager,
+
+    employee15Name,
+    employee15LoginName,
+    employee15Email,
+    employee15Department,
+    employee15IsManager,
+
+    employee16Name,
+    employee16LoginName,
+    employee16Email,
+    employee16Department,
+    employee16IsManager,
+
+    employee17Name,
+    employee17LoginName,
+    employee17Email,
+    employee17Department,
+    employee17IsManager,
+
+    employee18Name,
+    employee18LoginName,
+    employee18Email,
+    employee18Department,
+    employee18IsManager,
+
+    employee19Name,
+    employee19LoginName,
+    employee19Email,
+    employee19Department,
+    employee19IsManager,
+
+    employee20Name,
+    employee20LoginName,
+    employee20Email,
+    employee20Department,
+    employee20IsManager,
+
+    employee21Name,
+    employee21LoginName,
+    employee21Email,
+    employee21Department,
+    employee21IsManager,
+
+    employee22Name,
+    employee22LoginName,
+    employee22Email,
+    employee22Department,
+    employee22IsManager,
+
+    employee23Name,
+    employee23LoginName,
+    employee23Email,
+    employee23Department,
+    employee23IsManager,
+
+    employee24Name,
+    employee24LoginName,
+    employee24Email,
+    employee24Department,
+    employee24IsManager,
+
+    employee25Name,
+    employee25LoginName,
+    employee25Email,
+    employee25Department,
+    employee25IsManager,
+
   } = req.body;
 
 console.log("Environment is: "+Environment)
@@ -243,6 +340,136 @@ module.exports = defineConfig({
       Employee9_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[8].isMatch}",  
       Employee9_IS_MANAGER: ${employee9IsManager},
 
+      // Employee 10 info
+      Employee10_NAME: "${employee10Name}",
+      Employee10_LOGIN_NAME: "${employee10LoginName}",
+      Employee10_EMAIL: "${employee10Email}",
+      Employee10_DEPARTMENT: "${employee10Department}",
+      Employee10_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[9].isMatch}",
+      Employee10_IS_MANAGER: ${employee10IsManager},
+
+      // Employee 11 info
+      Employee11_NAME: "${employee11Name}",
+      Employee11_LOGIN_NAME: "${employee11LoginName}", 
+      Employee11_EMAIL: "${employee11Email}",
+      Employee11_DEPARTMENT: "${employee11Department}",
+      Employee11_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[10].isMatch}",  
+      Employee11_IS_MANAGER: ${employee11IsManager},
+
+      // Employee 12 info
+      Employee12_NAME: "${employee12Name}",
+      Employee12_LOGIN_NAME: "${employee12LoginName}",
+      Employee12_EMAIL: "${employee12Email}",
+      Employee12_DEPARTMENT: "${employee12Department}",
+      Employee12_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[11].isMatch}",  
+      Employee12_IS_MANAGER: ${employee12IsManager},
+
+      // Employee 13 info
+      Employee13_NAME: "${employee13Name}",
+      Employee13_LOGIN_NAME: "${employee13LoginName}",
+      Employee13_EMAIL: "${employee13Email}",
+      Employee13_DEPARTMENT: "${employee13Department}",
+      Employee13_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[12].isMatch}",  
+      Employee13_IS_MANAGER: ${employee13IsManager},
+
+      // Employee 14 info
+      Employee14_NAME: "${employee14Name}",
+      Employee14_LOGIN_NAME: "${employee14LoginName}",
+      Employee14_EMAIL: "${employee14Email}",
+      Employee14_DEPARTMENT: "${employee14Department}",
+      Employee14_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[13].isMatch}",  
+      Employee14_IS_MANAGER: ${employee14IsManager},
+
+      // Employee 15 info
+      Employee15_NAME: "${employee15Name}",
+      Employee15_LOGIN_NAME: "${employee15LoginName}",
+      Employee15_EMAIL: "${employee15Email}",
+      Employee15_DEPARTMENT: "${employee15Department}",
+      Employee15_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[14].isMatch}",  
+      Employee15_IS_MANAGER: ${employee15IsManager},
+
+      // Employee 16 info
+      Employee16_NAME: "${employee16Name}",
+      Employee16_LOGIN_NAME: "${employee16LoginName}",
+      Employee16_EMAIL: "${employee16Email}",
+      Employee16_DEPARTMENT: "${employee16Department}",
+      Employee16_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[15].isMatch}",  
+      Employee16_IS_MANAGER: ${employee16IsManager},
+
+      // Employee 17 info
+      Employee17_NAME: "${employee17Name}",
+      Employee17_LOGIN_NAME: "${employee17LoginName}",
+      Employee17_EMAIL: "${employee17Email}",
+      Employee17_DEPARTMENT: "${employee17Department}",
+      Employee17_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[16].isMatch}",  
+      Employee17_IS_MANAGER: ${employee17IsManager},
+
+      // Employee 18 info
+      Employee18_NAME: "${employee18Name}",
+      Employee18_LOGIN_NAME: "${employee18LoginName}",
+      Employee18_EMAIL: "${employee18Email}",
+      Employee18_DEPARTMENT: "${employee18Department}",
+      Employee18_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[17].isMatch}",  
+      Employee18_IS_MANAGER: ${employee18IsManager},
+
+---
+
+      // Employee 19 info
+      Employee19_NAME: "${employee19Name}",
+      Employee19_LOGIN_NAME: "${employee19LoginName}",
+      Employee19_EMAIL: "${employee19Email}",
+      Employee19_DEPARTMENT: "${employee19Department}",
+      Employee19_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[18].isMatch}",
+      Employee19_IS_MANAGER: ${employee19IsManager},
+
+      // Employee 20 info
+      Employee20_NAME: "${employee20Name}",
+      Employee20_LOGIN_NAME: "${employee20LoginName}", 
+      Employee20_EMAIL: "${employee20Email}",
+      Employee20_DEPARTMENT: "${employee20Department}",
+      Employee20_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[19].isMatch}",  
+      Employee20_IS_MANAGER: ${employee20IsManager},
+
+      // Employee 21 info
+      Employee21_NAME: "${employee21Name}",
+      Employee21_LOGIN_NAME: "${employee21LoginName}",
+      Employee21_EMAIL: "${employee21Email}",
+      Employee21_DEPARTMENT: "${employee21Department}",
+      Employee21_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[20].isMatch}",  
+      Employee21_IS_MANAGER: ${employee21IsManager},
+
+      // Employee 22 info
+      Employee22_NAME: "${employee22Name}",
+      Employee22_LOGIN_NAME: "${employee22LoginName}",
+      Employee22_EMAIL: "${employee22Email}",
+      Employee22_DEPARTMENT: "${employee22Department}",
+      Employee22_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[21].isMatch}",  
+      Employee22_IS_MANAGER: ${employee22IsManager},
+
+      // Employee 23 info
+      Employee23_NAME: "${employee23Name}",
+      Employee23_LOGIN_NAME: "${employee23LoginName}",
+      Employee23_EMAIL: "${employee23Email}",
+      Employee23_DEPARTMENT: "${employee23Department}",
+      Employee23_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[22].isMatch}",  
+      Employee23_IS_MANAGER: ${employee23IsManager},
+
+      // Employee 24 info
+      Employee24_NAME: "${employee24Name}",
+      Employee24_LOGIN_NAME: "${employee24LoginName}",
+      Employee24_EMAIL: "${employee24Email}",
+      Employee24_DEPARTMENT: "${employee24Department}",
+      Employee24_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[23].isMatch}",  
+      Employee24_IS_MANAGER: ${employee24IsManager},
+
+      // Employee 25 info
+      Employee25_NAME: "${employee25Name}",
+      Employee25_LOGIN_NAME: "${employee25LoginName}",
+      Employee25_EMAIL: "${employee25Email}",
+      Employee25_DEPARTMENT: "${employee25Department}",
+      Employee25_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[24].isMatch}",  
+      Employee25_IS_MANAGER: ${employee25IsManager},
+
   },
 });
 `;
@@ -359,6 +586,135 @@ module.exports = defineConfig({
       Employee9_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[8].isMatch}",  
       Employee9_IS_MANAGER: ${employee9IsManager},
 
+        // Employee 10 info
+      Employee10_NAME: "${employee10Name}",
+      Employee10_LOGIN_NAME: "${employee10LoginName}",
+      Employee10_EMAIL: "${employee10Email}",
+      Employee10_DEPARTMENT: "${employee10Department}",
+      Employee10_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[9].isMatch}",
+      Employee10_IS_MANAGER: ${employee10IsManager},
+
+      // Employee 11 info
+      Employee11_NAME: "${employee11Name}",
+      Employee11_LOGIN_NAME: "${employee11LoginName}", 
+      Employee11_EMAIL: "${employee11Email}",
+      Employee11_DEPARTMENT: "${employee11Department}",
+      Employee11_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[10].isMatch}",  
+      Employee11_IS_MANAGER: ${employee11IsManager},
+
+      // Employee 12 info
+      Employee12_NAME: "${employee12Name}",
+      Employee12_LOGIN_NAME: "${employee12LoginName}",
+      Employee12_EMAIL: "${employee12Email}",
+      Employee12_DEPARTMENT: "${employee12Department}",
+      Employee12_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[11].isMatch}",  
+      Employee12_IS_MANAGER: ${employee12IsManager},
+
+      // Employee 13 info
+      Employee13_NAME: "${employee13Name}",
+      Employee13_LOGIN_NAME: "${employee13LoginName}",
+      Employee13_EMAIL: "${employee13Email}",
+      Employee13_DEPARTMENT: "${employee13Department}",
+      Employee13_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[12].isMatch}",  
+      Employee13_IS_MANAGER: ${employee13IsManager},
+
+      // Employee 14 info
+      Employee14_NAME: "${employee14Name}",
+      Employee14_LOGIN_NAME: "${employee14LoginName}",
+      Employee14_EMAIL: "${employee14Email}",
+      Employee14_DEPARTMENT: "${employee14Department}",
+      Employee14_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[13].isMatch}",  
+      Employee14_IS_MANAGER: ${employee14IsManager},
+
+      // Employee 15 info
+      Employee15_NAME: "${employee15Name}",
+      Employee15_LOGIN_NAME: "${employee15LoginName}",
+      Employee15_EMAIL: "${employee15Email}",
+      Employee15_DEPARTMENT: "${employee15Department}",
+      Employee15_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[14].isMatch}",  
+      Employee15_IS_MANAGER: ${employee15IsManager},
+
+      // Employee 16 info
+      Employee16_NAME: "${employee16Name}",
+      Employee16_LOGIN_NAME: "${employee16LoginName}",
+      Employee16_EMAIL: "${employee16Email}",
+      Employee16_DEPARTMENT: "${employee16Department}",
+      Employee16_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[15].isMatch}",  
+      Employee16_IS_MANAGER: ${employee16IsManager},
+
+      // Employee 17 info
+      Employee17_NAME: "${employee17Name}",
+      Employee17_LOGIN_NAME: "${employee17LoginName}",
+      Employee17_EMAIL: "${employee17Email}",
+      Employee17_DEPARTMENT: "${employee17Department}",
+      Employee17_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[16].isMatch}",  
+      Employee17_IS_MANAGER: ${employee17IsManager},
+
+      // Employee 18 info
+      Employee18_NAME: "${employee18Name}",
+      Employee18_LOGIN_NAME: "${employee18LoginName}",
+      Employee18_EMAIL: "${employee18Email}",
+      Employee18_DEPARTMENT: "${employee18Department}",
+      Employee18_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[17].isMatch}",  
+      Employee18_IS_MANAGER: ${employee18IsManager},
+
+---
+
+      // Employee 19 info
+      Employee19_NAME: "${employee19Name}",
+      Employee19_LOGIN_NAME: "${employee19LoginName}",
+      Employee19_EMAIL: "${employee19Email}",
+      Employee19_DEPARTMENT: "${employee19Department}",
+      Employee19_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[18].isMatch}",
+      Employee19_IS_MANAGER: ${employee19IsManager},
+
+      // Employee 20 info
+      Employee20_NAME: "${employee20Name}",
+      Employee20_LOGIN_NAME: "${employee20LoginName}", 
+      Employee20_EMAIL: "${employee20Email}",
+      Employee20_DEPARTMENT: "${employee20Department}",
+      Employee20_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[19].isMatch}",  
+      Employee20_IS_MANAGER: ${employee20IsManager},
+
+      // Employee 21 info
+      Employee21_NAME: "${employee21Name}",
+      Employee21_LOGIN_NAME: "${employee21LoginName}",
+      Employee21_EMAIL: "${employee21Email}",
+      Employee21_DEPARTMENT: "${employee21Department}",
+      Employee21_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[20].isMatch}",  
+      Employee21_IS_MANAGER: ${employee21IsManager},
+
+      // Employee 22 info
+      Employee22_NAME: "${employee22Name}",
+      Employee22_LOGIN_NAME: "${employee22LoginName}",
+      Employee22_EMAIL: "${employee22Email}",
+      Employee22_DEPARTMENT: "${employee22Department}",
+      Employee22_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[21].isMatch}",  
+      Employee22_IS_MANAGER: ${employee22IsManager},
+
+      // Employee 23 info
+      Employee23_NAME: "${employee23Name}",
+      Employee23_LOGIN_NAME: "${employee23LoginName}",
+      Employee23_EMAIL: "${employee23Email}",
+      Employee23_DEPARTMENT: "${employee23Department}",
+      Employee23_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[22].isMatch}",  
+      Employee23_IS_MANAGER: ${employee23IsManager},
+
+      // Employee 24 info
+      Employee24_NAME: "${employee24Name}",
+      Employee24_LOGIN_NAME: "${employee24LoginName}",
+      Employee24_EMAIL: "${employee24Email}",
+      Employee24_DEPARTMENT: "${employee24Department}",
+      Employee24_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[23].isMatch}",  
+      Employee24_IS_MANAGER: ${employee24IsManager},
+
+      // Employee 25 info
+      Employee25_NAME: "${employee25Name}",
+      Employee25_LOGIN_NAME: "${employee25LoginName}",
+      Employee25_EMAIL: "${employee25Email}",
+      Employee25_DEPARTMENT: "${employee25Department}",
+      Employee25_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[24].isMatch}",  
+      Employee25_IS_MANAGER: ${employee25IsManager},
 
 `;
 
