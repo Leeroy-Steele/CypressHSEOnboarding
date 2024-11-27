@@ -121,7 +121,7 @@
         <h5 class="text-xl dark:text-white text-center p-3">Employee Information</h5>
         <div style="margin: auto; width: 200px;" class="mb-5 items-center mx-auto flex" >
             <p class="mt-2 text-sm text-gray-500 dark:text-gray-400 text-center"><i>Number of Employees:</i> </p>
-            <input   type="number" id="numberOfEmployees" name="numberOfEmployees" min="1" value="1" max="9" class="my-5 max-w-sm  border border-gray-300 rounded-md items-center m-auto" value="" required>
+            <input   type="number" id="numberOfEmployees" name="numberOfEmployees" min="1" value="1" max="25" class="my-5 max-w-sm  border border-gray-300 rounded-md items-center m-auto" value="" required>
             
         </div>
         <p class="text-sm text-gray-500 dark:text-gray-400 text-center my-5"><i>(Remember to include the main contact so they have a personal login)</i> </p>
@@ -310,6 +310,102 @@
                     "employee9Email": e.target.numberOfEmployees.value > 8 ? e.target.employee9Email.value : null,
                     "employee9Department": e.target.numberOfEmployees.value > 8 ? e.target.employee9Department.value : null,
                     "employee9IsManager": e.target.numberOfEmployees.value > 8 ? e.target.employee9IsManager.checked : null,
+
+                    "employee10Name": e.target.numberOfEmployees.value > 0 ?  e.target.employee10Name.value : null,
+                    "employee10LoginName": e.target.numberOfEmployees.value > 0 ?  e.target.employee10LoginName.value : null,
+                    "employee10Email": e.target.numberOfEmployees.value > 0 ?  e.target.employee10Email.value : null,
+                    "employee10Department": e.target.numberOfEmployees.value > 0 ?  e.target.employee10Department.value : null,
+                    "employee10IsManager": e.target.numberOfEmployees.value > 0 ?  e.target.employee10IsManager.checked : null,
+
+                    "employee11Name": e.target.numberOfEmployees.value > 1 ?  e.target.employee11Name.value : null,
+                    "employee11LoginName": e.target.numberOfEmployees.value > 1 ?  e.target.employee11LoginName.value : null,
+                    "employee11Email": e.target.numberOfEmployees.value > 1 ?  e.target.employee11Email.value : null,
+                    "employee11Department": e.target.numberOfEmployees.value > 1 ?  e.target.employee11Department.value : null,
+                    "employee11IsManager": e.target.numberOfEmployees.value > 1 ?  e.target.employee11IsManager.checked : null,
+
+                    "employee12Name": e.target.numberOfEmployees.value > 2 ? e.target.employee12Name.value : null,
+                    "employee12LoginName": e.target.numberOfEmployees.value > 2 ? e.target.employee12LoginName.value : null,
+                    "employee12Email": e.target.numberOfEmployees.value > 2 ? e.target.employee12Email.value : null,
+                    "employee12Department": e.target.numberOfEmployees.value > 2 ? e.target.employee12Department.value : null,
+                    "employee12IsManager": e.target.numberOfEmployees.value > 2 ? e.target.employee12IsManager.checked : null,
+
+                    "employee13Name": e.target.numberOfEmployees.value > 3 ?  e.target.employee13Name.value : null,
+                    "employee13LoginName": e.target.numberOfEmployees.value > 3 ?  e.target.employee13LoginName.value : null,
+                    "employee13Email": e.target.numberOfEmployees.value > 3 ?  e.target.employee13Email.value : null,
+                    "employee13Department": e.target.numberOfEmployees.value > 3 ?  e.target.employee13Department.value : null,
+                    "employee13IsManager": e.target.numberOfEmployees.value > 3 ?  e.target.employee13IsManager.checked : null,
+
+                    "employee14Name": e.target.numberOfEmployees.value > 4 ?  e.target.employee14Name.value : null,
+                    "employee14LoginName": e.target.numberOfEmployees.value > 4 ?  e.target.employee14LoginName.value : null,
+                    "employee14Email": e.target.numberOfEmployees.value > 4 ?  e.target.employee14Email.value : null,
+                    "employee14Department": e.target.numberOfEmployees.value > 4 ?  e.target.employee14Department.value : null,
+                    "employee14IsManager": e.target.numberOfEmployees.value > 4 ?  e.target.employee14IsManager.checked : null,
+
+                    "employee15Name": e.target.numberOfEmployees.value > 5 ? e.target.employee15Name.value : null,
+                    "employee15LoginName": e.target.numberOfEmployees.value > 5 ? e.target.employee15LoginName.value : null,
+                    "employee15Email": e.target.numberOfEmployees.value > 5 ? e.target.employee15Email.value : null,
+                    "employee15Department": e.target.numberOfEmployees.value > 5 ? e.target.employee15Department.value : null,
+                    "employee15IsManager": e.target.numberOfEmployees.value > 5 ? e.target.employee15IsManager.checked : null,
+
+                    "employee16Name": e.target.numberOfEmployees.value > 6 ?  e.target.employee16Name.value : null,
+                    "employee16LoginName": e.target.numberOfEmployees.value > 6 ?  e.target.employee16LoginName.value : null,
+                    "employee16Email": e.target.numberOfEmployees.value > 6 ?  e.target.employee16Email.value : null,
+                    "employee16Department": e.target.numberOfEmployees.value > 6 ?  e.target.employee16Department.value : null,
+                    "employee16IsManager": e.target.numberOfEmployees.value > 6 ?  e.target.employee16IsManager.checked : null,
+
+                    "employee17Name": e.target.numberOfEmployees.value > 7 ?  e.target.employee17Name.value : null,
+                    "employee17LoginName": e.target.numberOfEmployees.value > 7 ?  e.target.employee17LoginName.value : null,
+                    "employee17Email": e.target.numberOfEmployees.value > 7 ?  e.target.employee17Email.value : null,
+                    "employee17Department": e.target.numberOfEmployees.value > 7 ?  e.target.employee17Department.value : null,
+                    "employee17IsManager": e.target.numberOfEmployees.value > 7 ?  e.target.employee17IsManager.checked : null,
+
+                    "employee18Name": e.target.numberOfEmployees.value > 8 ? e.target.employee18Name.value : null,
+                    "employee18LoginName": e.target.numberOfEmployees.value > 8 ? e.target.employee18LoginName.value : null,
+                    "employee18Email": e.target.numberOfEmployees.value > 8 ? e.target.employee18Email.value : null,
+                    "employee18Department": e.target.numberOfEmployees.value > 8 ? e.target.employee18Department.value : null,
+                    "employee18IsManager": e.target.numberOfEmployees.value > 8 ? e.target.employee18IsManager.checked : null,
+
+                    "employee19Name": e.target.numberOfEmployees.value > 0 ?  e.target.employee19Name.value : null,
+                    "employee19LoginName": e.target.numberOfEmployees.value > 0 ?  e.target.employee19LoginName.value : null,
+                    "employee19Email": e.target.numberOfEmployees.value > 0 ?  e.target.employee19Email.value : null,
+                    "employee19Department": e.target.numberOfEmployees.value > 0 ?  e.target.employee19Department.value : null,
+                    "employee19IsManager": e.target.numberOfEmployees.value > 0 ?  e.target.employee19IsManager.checked : null,
+
+                    "employee20Name": e.target.numberOfEmployees.value > 1 ?  e.target.employee20Name.value : null,
+                    "employee20LoginName": e.target.numberOfEmployees.value > 1 ?  e.target.employee20LoginName.value : null,
+                    "employee20Email": e.target.numberOfEmployees.value > 1 ?  e.target.employee20Email.value : null,
+                    "employee20Department": e.target.numberOfEmployees.value > 1 ?  e.target.employee20Department.value : null,
+                    "employee20IsManager": e.target.numberOfEmployees.value > 1 ?  e.target.employee20IsManager.checked : null,
+
+                    "employee21Name": e.target.numberOfEmployees.value > 2 ? e.target.employee21Name.value : null,
+                    "employee21LoginName": e.target.numberOfEmployees.value > 2 ? e.target.employee21LoginName.value : null,
+                    "employee21Email": e.target.numberOfEmployees.value > 2 ? e.target.employee21Email.value : null,
+                    "employee21Department": e.target.numberOfEmployees.value > 2 ? e.target.employee21Department.value : null,
+                    "employee21IsManager": e.target.numberOfEmployees.value > 2 ? e.target.employee21IsManager.checked : null,
+
+                    "employee22Name": e.target.numberOfEmployees.value > 3 ?  e.target.employee22Name.value : null,
+                    "employee22LoginName": e.target.numberOfEmployees.value > 3 ?  e.target.employee22LoginName.value : null,
+                    "employee22Email": e.target.numberOfEmployees.value > 3 ?  e.target.employee22Email.value : null,
+                    "employee22Department": e.target.numberOfEmployees.value > 3 ?  e.target.employee22Department.value : null,
+                    "employee22IsManager": e.target.numberOfEmployees.value > 3 ?  e.target.employee22IsManager.checked : null,
+
+                    "employee23Name": e.target.numberOfEmployees.value > 4 ?  e.target.employee23Name.value : null,
+                    "employee23LoginName": e.target.numberOfEmployees.value > 4 ?  e.target.employee23LoginName.value : null,
+                    "employee23Email": e.target.numberOfEmployees.value > 4 ?  e.target.employee23Email.value : null,
+                    "employee23Department": e.target.numberOfEmployees.value > 4 ?  e.target.employee23Department.value : null,
+                    "employee23IsManager": e.target.numberOfEmployees.value > 4 ?  e.target.employee23IsManager.checked : null,
+
+                    "employee24Name": e.target.numberOfEmployees.value > 5 ? e.target.employee24Name.value : null,
+                    "employee24LoginName": e.target.numberOfEmployees.value > 5 ? e.target.employee24LoginName.value : null,
+                    "employee24Email": e.target.numberOfEmployees.value > 5 ? e.target.employee24Email.value : null,
+                    "employee24Department": e.target.numberOfEmployees.value > 5 ? e.target.employee24Department.value : null,
+                    "employee24IsManager": e.target.numberOfEmployees.value > 5 ? e.target.employee24IsManager.checked : null,
+
+                    "employee25Name": e.target.numberOfEmployees.value > 6 ?  e.target.employee25Name.value : null,
+                    "employee25LoginName": e.target.numberOfEmployees.value > 6 ?  e.target.employee25LoginName.value : null,
+                    "employee25Email": e.target.numberOfEmployees.value > 6 ?  e.target.employee25Email.value : null,
+                    "employee25Department": e.target.numberOfEmployees.value > 6 ?  e.target.employee25Department.value : null,
+                    "employee25IsManager": e.target.numberOfEmployees.value > 6 ?  e.target.employee25IsManager.checked : null,
 
                 }),
             })
