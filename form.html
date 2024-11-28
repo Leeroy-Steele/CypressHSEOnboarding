@@ -171,6 +171,7 @@
 
     <script>
 
+        //email required for employees on form only if `manager` is selected so that lancom button contact can be created
         function employeeEmailRequired(employeeEmailFieldId){
             let emailInput =  document.getElementById(employeeEmailFieldId)
 
@@ -186,7 +187,7 @@
 
         }
 
-
+        //  dynamically add employee fields
         document.addEventListener('DOMContentLoaded', function() {
 
             const employeesContainer = document.getElementById('employees-container');
