@@ -127,7 +127,6 @@ Cypress.Commands.add('createHseUser_NewDepartment', (name, loginName, email, Dep
 })
 
 
-
 Cypress.Commands.add('addTasklistToTicket', () => { 
   // For webhook to Power Automate. Flow is here -> `https://make.powerautomate.com/environments/2e21e621-fcf3-eae1-a4d1-9e02b3152fc8/flows/96d7de0a-c2fb-4a1b-940e-e541d79058b4/runs/08584732557519775569424720085CU26`
 
@@ -183,9 +182,11 @@ Cypress.Commands.add('createAllUsersInHse', () => {
     // Add display name
     cy.get(':nth-child(1) > .textbox').type(name)
     cy.wait(1000)
-    // Add Email
-    cy.get(':nth-child(2) > .input_content > .clearfix > :nth-child(1) > .ng-pristine').type(Cypress.env(`IS_MTA`)?'+++Email_Blocked+++' + email : email)
-    cy.wait(1000)
+    // Add Email if entered on form
+    if(email!==""){
+      cy.get(':nth-child(2) > .input_content > .clearfix > :nth-child(1) > .ng-pristine').type(Cypress.env(`IS_MTA`)?'+++Email_Blocked+++' + email : email)
+      cy.wait(1000)
+    }
     
     // IF IsManager === true. Assign HSE manager role
     if(IsManager){
@@ -219,9 +220,11 @@ Cypress.Commands.add('createAllUsersInHse', () => {
     // Add display name
     cy.get(':nth-child(1) > .textbox').type(name)
     cy.wait(1000)
-    // Add Email
-    cy.get(':nth-child(2) > .input_content > .clearfix > :nth-child(1) > .ng-pristine').type(Cypress.env(`IS_MTA`)?'+++Email_Blocked+++' + email : email)
-    cy.wait(1000)
+    // Add Email if entered on form
+    if(email!==""){
+      cy.get(':nth-child(2) > .input_content > .clearfix > :nth-child(1) > .ng-pristine').type(Cypress.env(`IS_MTA`)?'+++Email_Blocked+++' + email : email)
+      cy.wait(1000)
+    }
 
     // IF IsManager === true. Assign HSE manager role
     if(IsManager){
@@ -269,8 +272,6 @@ Cypress.Commands.add('createAllUsersInHse', () => {
   }
 
   addEmployees.forEach((func)=>{func()})
-
-
 
 })
 

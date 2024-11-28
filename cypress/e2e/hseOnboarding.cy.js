@@ -29,7 +29,7 @@ const CreatedCompanyInHSEMessage =
 
 describe('Run HSE Onboarding Automation', () => {
 
-  it.only('Create new company in HSE Connect', () => {
+  it('Create new company in HSE Connect', () => {
     // Login to HSE Preview
     cy.visit(Cypress.env('HSE_URL'))
 
@@ -64,12 +64,16 @@ describe('Run HSE Onboarding Automation', () => {
         // Add email address
         cy.get('#email').type(Cypress.env('MAIN_CONTACT_EMAIL'))
 
-        // Add phone number
-        cy.get('#phone').type(Cypress.env('MAIN_CONTACT_PHONE_NUMBER'))
+        // Add phone number if entered on form
+        if(Cypress.env('MAIN_CONTACT_PHONE_NUMBER')!==""){
+          cy.get('#phone').type(Cypress.env('MAIN_CONTACT_PHONE_NUMBER'))
+        }
 
-        // Add mobile number
-        cy.get('#mobile').type(Cypress.env('MAIN_CONTACT_MOBILE_NUMBER'))
-
+        // Add mobile number if entered on form
+        if(Cypress.env('MAIN_CONTACT_MOBILE_NUMBER')!==""){
+          cy.get('#mobile').type(Cypress.env('MAIN_CONTACT_MOBILE_NUMBER'))
+        }
+        
         // Add Address
         cy.get('#address').type(Cypress.env('COMPANY_ADDRESS'))
       // Save Company

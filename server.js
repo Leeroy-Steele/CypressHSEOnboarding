@@ -230,7 +230,7 @@ function getDateFourWeeksFromNow() {
         // Employee ${i} info:
         Employee${i}_NAME: "${eval(`employee${i}Name`)}",
         Employee${i}_LOGIN_NAME: "${eval(`employee${i}LoginName`)}",
-        Employee${i}_EMAIL: "${eval(`employee${i}Email`)!==""?eval(`employee${i}Email`):" "}",
+        Employee${i}_EMAIL: "${eval(`employee${i}Email`)}",
         Employee${i}_DEPARTMENT: "${eval(`employee${i}Department`)}",
         Employee${i}_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[i - 1].isMatch}",
         Employee${i}_IS_MANAGER: ${eval(`employee${i}IsManager`)},
