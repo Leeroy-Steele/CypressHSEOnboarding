@@ -1,96 +1,8 @@
-// const cypress = require("cypress")
 
 let shortWait = 1500
 let mediumWait = 2500
 let LongWait = 3500
 let extralongWait = 4500
-
-let addEmployee1 = ()=>{}
-let addEmployee2 = ()=>{}
-let addEmployee3 = ()=>{}
-let addEmployee4 = ()=>{}
-let addEmployee5 = ()=>{}
-let addEmployee6 = ()=>{}
-let addEmployee7 = ()=>{}
-let addEmployee8 = ()=>{}
-let addEmployee9 = ()=>{}
-if(Cypress.env('NUMBER_OF_EMPLOYEES')>0){
-  addEmployee1=()=>{
-    cy.createHseUser_NewDepartment(Cypress.env('Employee1_NAME'),Cypress.env('Employee1_LOGIN_NAME'),Cypress.env('Employee1_EMAIL'),Cypress.env('Employee1_DEPARTMENT'),Cypress.env('Employee1_IS_MANAGER'))
-  }
-}
-if(Cypress.env('NUMBER_OF_EMPLOYEES')>1){
-  addEmployee2=()=>{
-    if(Cypress.env('Employee2_DEPARTMENT_ALREADY_EXISTS')==="true"){
-      cy.createHseUser_ExistingDepartment(Cypress.env('Employee2_NAME'),Cypress.env('Employee2_LOGIN_NAME'),Cypress.env('Employee2_EMAIL'),Cypress.env('Employee2_DEPARTMENT'),Cypress.env('Employee2_IS_MANAGER'))
-    }else{
-      cy.createHseUser_NewDepartment(Cypress.env('Employee2_NAME'),Cypress.env('Employee2_LOGIN_NAME'),Cypress.env('Employee2_EMAIL'),Cypress.env('Employee2_DEPARTMENT'),Cypress.env('Employee2_IS_MANAGER'))
-    }
-  }
-}
-if(Cypress.env('NUMBER_OF_EMPLOYEES')>2){
-  addEmployee3 = ()=>{
-    if(Cypress.env('Employee3_DEPARTMENT_ALREADY_EXISTS')==="true"){
-      cy.createHseUser_ExistingDepartment(Cypress.env('Employee3_NAME'),Cypress.env('Employee3_LOGIN_NAME'),Cypress.env('Employee3_EMAIL'),Cypress.env('Employee3_DEPARTMENT'),Cypress.env('Employee3_IS_MANAGER'))
-    }else{
-      cy.createHseUser_NewDepartment(Cypress.env('Employee3_NAME'),Cypress.env('Employee3_LOGIN_NAME'),Cypress.env('Employee3_EMAIL'),Cypress.env('Employee3_DEPARTMENT'),Cypress.env('Employee3_IS_MANAGER'))
-    }
-  }
-}
-if(Cypress.env('NUMBER_OF_EMPLOYEES')>3){
-  addEmployee4 = ()=>{
-    if(Cypress.env('Employee4_DEPARTMENT_ALREADY_EXISTS')==="true"){
-      cy.createHseUser_ExistingDepartment(Cypress.env('Employee4_NAME'),Cypress.env('Employee4_LOGIN_NAME'),Cypress.env('Employee4_EMAIL'),Cypress.env('Employee4_DEPARTMENT'),Cypress.env('Employee4_IS_MANAGER'))
-    }else{
-      cy.createHseUser_NewDepartment(Cypress.env('Employee4_NAME'),Cypress.env('Employee4_LOGIN_NAME'),Cypress.env('Employee4_EMAIL'),Cypress.env('Employee4_DEPARTMENT'),Cypress.env('Employee4_IS_MANAGER'))
-    }
-  }
-}
-if(Cypress.env('NUMBER_OF_EMPLOYEES')>4){
-  addEmployee5=()=>{
-    if(Cypress.env('Employee5_DEPARTMENT_ALREADY_EXISTS')==="true"){
-      cy.createHseUser_ExistingDepartment(Cypress.env('Employee5_NAME'),Cypress.env('Employee5_LOGIN_NAME'),Cypress.env('Employee5_EMAIL'),Cypress.env('Employee5_DEPARTMENT'),Cypress.env('Employee5_IS_MANAGER'))
-    }else{
-      cy.createHseUser_NewDepartment(Cypress.env('Employee5_NAME'),Cypress.env('Employee5_LOGIN_NAME'),Cypress.env('Employee5_EMAIL'),Cypress.env('Employee5_DEPARTMENT'),Cypress.env('Employee5_IS_MANAGER'))
-    }
-  }
-}
-if(Cypress.env('NUMBER_OF_EMPLOYEES')>5){
-  addEmployee6=()=>{
-    if(Cypress.env('Employee6_DEPARTMENT_ALREADY_EXISTS')==="true"){
-      cy.createHseUser_ExistingDepartment(Cypress.env('Employee6_NAME'),Cypress.env('Employee6_LOGIN_NAME'),Cypress.env('Employee6_EMAIL'),Cypress.env('Employee6_DEPARTMENT'),Cypress.env('Employee6_IS_MANAGER'))
-    }else{
-      cy.createHseUser_NewDepartment(Cypress.env('Employee6_NAME'),Cypress.env('Employee6_LOGIN_NAME'),Cypress.env('Employee6_EMAIL'),Cypress.env('Employee6_DEPARTMENT'),Cypress.env('Employee6_IS_MANAGER'))
-    }
-  }
-}
-if(Cypress.env('NUMBER_OF_EMPLOYEES')>6){
-  addEmployee7 = ()=>{
-    if(Cypress.env('Employee7_DEPARTMENT_ALREADY_EXISTS')==="true"){
-      cy.createHseUser_ExistingDepartment(Cypress.env('Employee7_NAME'),Cypress.env('Employee7_LOGIN_NAME'),Cypress.env('Employee7_EMAIL'),Cypress.env('Employee7_DEPARTMENT'),Cypress.env('Employee7_IS_MANAGER'))
-    }else{
-      cy.createHseUser_NewDepartment(Cypress.env('Employee7_NAME'),Cypress.env('Employee7_LOGIN_NAME'),Cypress.env('Employee7_EMAIL'),Cypress.env('Employee7_DEPARTMENT'),Cypress.env('Employee7_IS_MANAGER'))
-    }
-  }
-}
-if(Cypress.env('NUMBER_OF_EMPLOYEES')>7){
-  addEmployee8 = ()=>{
-    if(Cypress.env('Employee8_DEPARTMENT_ALREADY_EXISTS')==="true"){
-      cy.createHseUser_ExistingDepartment(Cypress.env('Employee8_NAME'),Cypress.env('Employee8_LOGIN_NAME'),Cypress.env('Employee8_EMAIL'),Cypress.env('Employee8_DEPARTMENT'),Cypress.env('Employee8_IS_MANAGER'))
-    }else{
-      cy.createHseUser_NewDepartment(Cypress.env('Employee8_NAME'),Cypress.env('Employee8_LOGIN_NAME'),Cypress.env('Employee8_EMAIL'),Cypress.env('Employee8_DEPARTMENT'),Cypress.env('Employee8_IS_MANAGER'))
-    }
-  }
-}
-if(Cypress.env('NUMBER_OF_EMPLOYEES')>8){
-  addEmployee9 = ()=>{
-    if(Cypress.env('Employee9_DEPARTMENT_ALREADY_EXISTS')==="true"){
-      cy.createHseUser_ExistingDepartment(Cypress.env('Employee9_NAME'),Cypress.env('Employee9_LOGIN_NAME'),Cypress.env('Employee9_EMAIL'),Cypress.env('Employee9_DEPARTMENT'),Cypress.env('Employee9_IS_MANAGER'))
-    }else{
-      cy.createHseUser_NewDepartment(Cypress.env('Employee9_NAME'),Cypress.env('Employee9_LOGIN_NAME'),Cypress.env('Employee9_EMAIL'),Cypress.env('Employee9_DEPARTMENT'),Cypress.env('Employee9_IS_MANAGER'))
-    }
-  }
-}
 
 const CreatedNotificationsMessage =   
 `
@@ -151,12 +63,16 @@ describe('Run HSE Onboarding Automation', () => {
         // Add email address
         cy.get('#email').type(Cypress.env('MAIN_CONTACT_EMAIL'))
 
-        // Add phone number
-        cy.get('#phone').type(Cypress.env('MAIN_CONTACT_PHONE_NUMBER'))
+        // Add phone number if entered on form
+        if(Cypress.env('MAIN_CONTACT_PHONE_NUMBER')!==""){
+          cy.get('#phone').type(Cypress.env('MAIN_CONTACT_PHONE_NUMBER'))
+        }
 
-        // Add mobile number
-        cy.get('#mobile').type(Cypress.env('MAIN_CONTACT_MOBILE_NUMBER'))
-
+        // Add mobile number if entered on form
+        if(Cypress.env('MAIN_CONTACT_MOBILE_NUMBER')!==""){
+          cy.get('#mobile').type(Cypress.env('MAIN_CONTACT_MOBILE_NUMBER'))
+        }
+        
         // Add Address
         cy.get('#address').type(Cypress.env('COMPANY_ADDRESS'))
       // Save Company
@@ -374,7 +290,7 @@ describe('Run HSE Onboarding Automation', () => {
         cy.wait(LongWait)
 
         // Add login name
-        cy.get(':nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(2) > [placeholder="Login Name"][type="text"]').type(Cypress.env('MAIN_CONTACT_EMAIL'))
+        cy.get(':nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(2) > [placeholder="Login Name"][type="text"]').type(Cypress.env('MAIN_CONTACT_USERNAME'))
         cy.wait(shortWait)
 
         // Add display name
@@ -399,23 +315,17 @@ describe('Run HSE Onboarding Automation', () => {
         cy.get('.pull-right > .button').should('exist').click()
         cy.wait(shortWait)
         cy.ticketInternalNote(`
-          Created HSE Manager in ${Cypress.env('COMPANY_NAME')}`)
+          Created HSE Manager (${Cypress.env('MAIN_CONTACT_USERNAME')}) in ${Cypress.env('COMPANY_NAME')}`
+        )
+
+
 
         // Go Back
         cy.get('.clearfix.ng-binding > .button').should('exist').click()
 
 
-      //Conditionally add users. Number depends on Cypress.env('NUMBER_OF_EMPLOYEES') 
-      addEmployee1()
-      addEmployee2()
-      addEmployee3()
-      addEmployee4()
-      addEmployee5()
-      addEmployee6()
-      addEmployee7()
-      addEmployee8()
-      addEmployee9()
-
+      //Add all employees as users in HSE. Number of employees depends on Cypress.env('NUMBER_OF_EMPLOYEES') Code is located in cypress custom commands.js file
+      cy.createAllUsersInHse()
      
     
     // Add site
@@ -436,12 +346,11 @@ describe('Run HSE Onboarding Automation', () => {
   it('Create contacts in Lancom Button', () => {
     // Do with webhook to Power Automate. Flow is here -> `https://make.powerautomate.com/environments/2e21e621-fcf3-eae1-a4d1-9e02b3152fc8/flows/96d7de0a-c2fb-4a1b-940e-e541d79058b4/runs/08584732557519775569424720085CU26`
     cy.createContact(`${Cypress.env('MAIN_CONTACT_FIRST_NAME')}`, `${Cypress.env('MAIN_CONTACT_EMAIL')}`)
-    cy.ticketInternalNote(`Created main contact in lancom button`)
 
 
     // Create other contacts if they are manager
     for (let current=Cypress.env('NUMBER_OF_EMPLOYEES');current > 0;current--){
-      if(Cypress.env(`Employee${current}_IS_MANAGER`)){
+      if(Cypress.env(`Employee${current}_Create_In_LB`)){
         cy.createContact(`${Cypress.env(`Employee${current}_NAME`)}`, `${Cypress.env(`Employee${current}_EMAIL`)}`)
       }
     }
