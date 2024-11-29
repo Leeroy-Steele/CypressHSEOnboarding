@@ -206,10 +206,10 @@ Cypress.Commands.add('createAllUsersInHse', () => {
     cy.get('.pull-right > .button').should('exist').click()
     cy.wait(1000)
     cy.ticketInternalNote(`
-      Created new user: ${name} in ${Cypress.env('COMPANY_NAME')}
+    Created new user: ${name} in ${Cypress.env('COMPANY_NAME')}
     
-      ${Cypress.env('IS_MTA')?"As this is a MTA customer the email was modified to " + '+++Email_Blocked+++' + email + " to prevent a notification email" : null }
-      `)
+    ${Cypress.env('IS_MTA')?"As this is a MTA customer the email was modified to " + '+++Email_Blocked+++' + email + " to prevent a notification email" : "" }
+    `)
     // Go Back
     cy.get('.clearfix.ng-binding > .button').should('exist').click()
 
@@ -247,10 +247,10 @@ Cypress.Commands.add('createAllUsersInHse', () => {
     cy.get('.pull-right > .button').should('exist').click()
     cy.wait(1000)
     cy.ticketInternalNote(`
-      Created new user: ${name} in ${Cypress.env('COMPANY_NAME')}
+    Created new user: ${name} in ${Cypress.env('COMPANY_NAME')}
     
-      ${Cypress.env('IS_MTA')?"As this is a MTA customer the email was modified to " + '+++Email_Blocked+++' + email + " to prevent a notification email" : null }
-      `)
+    ${Cypress.env('IS_MTA')?"As this is a MTA customer the email was modified to " + '+++Email_Blocked+++' + email + " to prevent a notification email" : "" }
+    `)
     // Go Back
     cy.get('.clearfix.ng-binding > .button').should('exist').click()
 
