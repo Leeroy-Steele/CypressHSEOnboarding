@@ -24,6 +24,7 @@ exec(`start ${serverURL}`);
 
 app.post('/download', (req, res) => {
 
+  // Get form info from request body
   const {
     TicketID,
     Environment,
@@ -41,162 +42,14 @@ app.post('/download', (req, res) => {
     mainContactUsername,
     mainContactPassword,
 
-    employee1Name,
-    employee1LoginName,
-    employee1Email,
-    employee1Department,
-    employee1IsManager,
-
-    employee2Name,
-    employee2LoginName,
-    employee2Email,
-    employee2Department,
-    employee2IsManager,
-
-    employee3Name,
-    employee3LoginName,
-    employee3Email,
-    employee3Department,
-    employee3IsManager,
-
-    employee4Name,
-    employee4LoginName,
-    employee4Email,
-    employee4Department,
-    employee4IsManager,
-
-    employee5Name,
-    employee5LoginName,
-    employee5Email,
-    employee5Department,
-    employee5IsManager,
-
-    employee6Name,
-    employee6LoginName,
-    employee6Email,
-    employee6Department,
-    employee6IsManager,
-
-    employee7Name,
-    employee7LoginName,
-    employee7Email,
-    employee7Department,
-    employee7IsManager,
-
-    employee8Name,
-    employee8LoginName,
-    employee8Email,
-    employee8Department,
-    employee8IsManager,
-
-    employee9Name,
-    employee9LoginName,
-    employee9Email,
-    employee9Department,
-    employee9IsManager,
-
-    employee10Name,
-    employee10LoginName,
-    employee10Email,
-    employee10Department,
-    employee10IsManager,
-
-    employee11Name,
-    employee11LoginName,
-    employee11Email,
-    employee11Department,
-    employee11IsManager,
-
-    employee12Name,
-    employee12LoginName,
-    employee12Email,
-    employee12Department,
-    employee12IsManager,
-
-    employee13Name,
-    employee13LoginName,
-    employee13Email,
-    employee13Department,
-    employee13IsManager,
-
-    employee14Name,
-    employee14LoginName,
-    employee14Email,
-    employee14Department,
-    employee14IsManager,
-
-    employee15Name,
-    employee15LoginName,
-    employee15Email,
-    employee15Department,
-    employee15IsManager,
-
-    employee16Name,
-    employee16LoginName,
-    employee16Email,
-    employee16Department,
-    employee16IsManager,
-
-    employee17Name,
-    employee17LoginName,
-    employee17Email,
-    employee17Department,
-    employee17IsManager,
-
-    employee18Name,
-    employee18LoginName,
-    employee18Email,
-    employee18Department,
-    employee18IsManager,
-
-    employee19Name,
-    employee19LoginName,
-    employee19Email,
-    employee19Department,
-    employee19IsManager,
-
-    employee20Name,
-    employee20LoginName,
-    employee20Email,
-    employee20Department,
-    employee20IsManager,
-
-    employee21Name,
-    employee21LoginName,
-    employee21Email,
-    employee21Department,
-    employee21IsManager,
-
-    employee22Name,
-    employee22LoginName,
-    employee22Email,
-    employee22Department,
-    employee22IsManager,
-
-    employee23Name,
-    employee23LoginName,
-    employee23Email,
-    employee23Department,
-    employee23IsManager,
-
-    employee24Name,
-    employee24LoginName,
-    employee24Email,
-    employee24Department,
-    employee24IsManager,
-
-    employee25Name,
-    employee25LoginName,
-    employee25Email,
-    employee25Department,
-    employee25IsManager,
-
+    ...rest
   } = req.body;
+
 
 console.log("Environment is: "+Environment)
 
 // Create department compare logic here
-let departmentArr = [employee1Department, employee2Department,employee3Department,employee4Department,employee5Department,employee6Department,employee7Department,employee8Department,employee9Department,employee10Department, employee11Department,employee12Department,employee13Department,employee14Department,employee15Department,employee16Department,employee17Department,employee18Department,employee19Department,employee20Department,employee21Department,employee22Department,employee23Department,employee24Department,employee25Department]
+let departmentArr = [rest['employee1Department'], rest['employee2Department'],rest['employee3Department'],rest['employee4Department'],rest['employee5Department'],rest['employee6Department'],rest['employee7Department'],rest['employee8Department'],rest['employee9Department'],rest['employee10Department'],rest['employee11Department'],rest['employee12Department'],rest['employee13Department'],rest['employee14Department'],rest['employee15Department'],rest['employee16Department'],rest['employee17Department'],rest['employee18Department'],rest['employee19Department'],rest['employee20Department'],rest['employee21Department'],rest['employee22Department'],rest['employee22Department'],rest['employee23Department'],rest['employee24Department'],rest['employee25Department']]
 let previousMatchingDepartments = new Set();
 
 let employeeDepartmentsArray = departmentArr.map(str => {
@@ -204,6 +57,8 @@ let employeeDepartmentsArray = departmentArr.map(str => {
   previousMatchingDepartments.add(str);
   return { string: str, isMatch };
 })
+
+console.log(employeeDepartmentsArray)
 
 
 // Add Due date for trainings (4 weeks from now)
@@ -224,16 +79,18 @@ function getDateFourWeeksFromNow() {
 // Create the cypress.config.js content dynamically
   function generateEmployeeInfo( employeeDepartmentsArray) {
     let employeeInfo = "";
-  
+
     for (let i = 1; i <= numberOfEmployees; i++) {
+      const employeeEmail = rest[`employee${i}Email`]!==null?`${rest[`employee${i}Email`]}`:'';
       employeeInfo += `
         // Employee ${i} info:
-        Employee${i}_NAME: "${eval(`employee${i}Name`)}",
-        Employee${i}_LOGIN_NAME: "${eval(`employee${i}LoginName`)}",
-        Employee${i}_EMAIL: "${eval(`employee${i}Email`)}",
-        Employee${i}_DEPARTMENT: "${eval(`employee${i}Department`)}",
+        Employee${i}_NAME: "${rest[`employee${i}Name`]}",
+        Employee${i}_LOGIN_NAME: "${rest[`employee${i}LoginName`]}",
+        Employee${i}_EMAIL: "${employeeEmail}", 
+        Employee${i}_DEPARTMENT: "${rest[`employee${i}Department`]}",  
         Employee${i}_DEPARTMENT_ALREADY_EXISTS: "${employeeDepartmentsArray[i - 1].isMatch}",
-        Employee${i}_IS_MANAGER: ${eval(`employee${i}IsManager`)},
+        Employee${i}_IS_MANAGER: ${rest[`employee${i}IsManager`]}, 
+        Employee${i}_Create_In_LB: ${rest[`employee${i}CreateInLB`]},  
       `;
     }
   

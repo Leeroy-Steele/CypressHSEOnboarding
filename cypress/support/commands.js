@@ -47,7 +47,11 @@ Cypress.Commands.add('ticketInternalNote', (note) => {
       };
     
       fetch("https://prod-19.australiasoutheast.logic.azure.com:443/workflows/ece9c78292324b17bf0c8f68f010cb6b/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=WLYxCqqlzpQMLo4-YVwIdiApsi5FIqCZvMrFLNA4A4U", requestOptions)
-      .catch((error) => console.error(error));
+      .then((resp)=> cy.ticketInternalNote(`Created ${name} ( '${email}' ) as a contact in lancom button`))
+      .catch((error) => {
+        cy.ticketInternalNote(`Failed to create ${name} ( '${email}' ) as a contact in lancom button. Check the email isn't already taken`)  
+        console.error(error)
+      });
 
  })
 
