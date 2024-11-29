@@ -315,7 +315,10 @@ describe('Run HSE Onboarding Automation', () => {
         cy.get('.pull-right > .button').should('exist').click()
         cy.wait(shortWait)
         cy.ticketInternalNote(`
-          Created HSE Manager in ${Cypress.env('COMPANY_NAME')}`)
+          Created HSE Manager (${Cypress.env('MAIN_CONTACT_USERNAME')}) in ${Cypress.env('COMPANY_NAME')}`
+        )
+
+
 
         // Go Back
         cy.get('.clearfix.ng-binding > .button').should('exist').click()
@@ -347,7 +350,7 @@ describe('Run HSE Onboarding Automation', () => {
 
     // Create other contacts if they are manager
     for (let current=Cypress.env('NUMBER_OF_EMPLOYEES');current > 0;current--){
-      if(Cypress.env(`Employee${current}_IS_MANAGER`)){
+      if(Cypress.env(`Employee${current}_Create_In_LB`)){
         cy.createContact(`${Cypress.env(`Employee${current}_NAME`)}`, `${Cypress.env(`Employee${current}_EMAIL`)}`)
       }
     }
