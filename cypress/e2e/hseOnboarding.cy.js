@@ -345,7 +345,7 @@ describe('Run HSE Onboarding Automation', () => {
 
   it('Create contacts in Lancom Button', () => {
     // Do with webhook to Power Automate. Flow is here -> `https://make.powerautomate.com/environments/2e21e621-fcf3-eae1-a4d1-9e02b3152fc8/flows/96d7de0a-c2fb-4a1b-940e-e541d79058b4/runs/08584732557519775569424720085CU26`
-    cy.createContact(`${Cypress.env('MAIN_CONTACT_FIRST_NAME')}`, `${Cypress.env('MAIN_CONTACT_EMAIL')}`)
+    cy.createContact(`${Cypress.env('MAIN_CONTACT_FIRST_NAME')} ${Cypress.env('MAIN_CONTACT_LAST_NAME')}`, `${Cypress.env('MAIN_CONTACT_EMAIL')}`)
 
 
     // Create other contacts if they are manager
@@ -360,6 +360,7 @@ describe('Run HSE Onboarding Automation', () => {
   it('Create secure HSE Manager password link with https://1ty.me/', () => {
     
     cy.visit('https://1ty.me/')
+    cy.wait(shortWait)
     cy.get('#note_box_main').type(Cypress.env('MAIN_CONTACT_PASSWORD'))
     
     // Generate link
