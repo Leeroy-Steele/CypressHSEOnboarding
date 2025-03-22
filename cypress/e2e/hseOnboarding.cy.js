@@ -340,7 +340,6 @@ describe('Run HSE Onboarding Automation', () => {
       // Press Save
       cy.get('h3 > .pull-right > .button').should('exist').click()
 
-
   })
 
   it('Create contacts in Lancom Button', () => {
