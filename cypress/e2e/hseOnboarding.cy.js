@@ -389,7 +389,7 @@ describe('Run HSE Onboarding Automation', () => {
 
   |HSE Manager Login Name|HSE Manager PW Link|
   |--|--| 
-  |${Cypress.env('MAIN_CONTACT_EMAIL')}|${pwLink}|
+  |${Cypress.env('MAIN_CONTACT_USERNAME')}|${pwLink}|
 
 
   ***
